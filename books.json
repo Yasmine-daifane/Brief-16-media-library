@@ -1,0 +1,927 @@
+[
+  {
+    "author": "Chinua Achebe",
+    "state": "Good condition",
+    "imageLink": "images/things-fall-apart.jpg",
+
+    "type": "novel",
+    "pages": 209,
+    "title": "Things Fall Apart",
+    "year": 1958
+  },
+  {
+    "author": "Hans Christian Andersen",
+    "state": "Good condition",
+    "imageLink": "images/fairy-tales.jpg",
+
+    "type": "Collection",
+    "pages": 784,
+    "title": "Fairy tales",
+    "year": 1836
+  },
+  {
+    "author": "Dante Alighieri",
+    "state": "New",
+    "imageLink": "images/the-divine-comedy.jpg",
+
+    "type": "novel",
+    "pages": 928,
+    "title": "The Divine Comedy",
+    "year": 1315
+  },
+  {
+    "author": "Unknown",
+    "state": "Good condition",
+    "imageLink": "images/the-epic-of-gilgamesh.jpg",
+
+    "type": "novel",
+    "pages": 160,
+    "title": "The Epic Of Gilgamesh",
+    "year": -1700
+  },
+  {
+    "author": "Unknown",
+    "state": "New",
+    "imageLink": "images/the-book-of-job.jpg",
+
+    "type": "novel",
+    "pages": 176,
+    "title": "The Book Of Job",
+    "year": -600
+  },
+  {
+    "author": "Unknown",
+    "state": "New",
+    "imageLink": "images/one-thousand-and-one-nights.jpg",
+    "type": "novel",
+    "pages": 288,
+    "title": "One Thousand and One Nights",
+    "year": 1200
+  },
+  {
+    "author": "Jane Austen",
+    "state": "New",
+    "imageLink": "images/pride-and-prejudice.jpg",
+    "type": "novel",
+    "pages": 226,
+    "title": "Pride and Prejudice",
+    "year": 1813
+  },
+  {
+    "author": "Honor\u00e9 de Balzac",
+    "state": "Good condition",
+    "imageLink": "images/le-pere-goriot.jpg",
+    "type": "novel",
+    "pages": 443,
+    "title": "Le P\u00e8re Goriot",
+    "year": 1835
+  },
+  {
+    "author": "Samuel Beckett",
+    "state": "Good condition",
+    "imageLink": "images/molloy-malone-dies-the-unnamable.jpg",
+    "type": "novel",
+    "pages": 256,
+    "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+    "year": 1952
+  },
+  {
+    "author": "Giovanni Boccaccio",
+    "state": "New",
+    "imageLink": "images/the-decameron.jpg",
+
+    "type": "novel",
+    "pages": 1024,
+    "title": "The Decameron",
+    "year": 1351
+  },
+  {
+    "author": "Jorge Luis Borges",
+    "state": "New",
+    "imageLink": "images/ficciones.jpg",
+    "type": "novel",
+    "pages": 224,
+    "title": "Ficciones",
+    "year": 1965
+  },
+  {
+    "author": "Emily Bront\u00eb",
+    "state": "New",
+    "imageLink": "images/wuthering-heights.jpg",
+
+    "type": "novel",
+    "pages": 342,
+    "title": "Wuthering Heights",
+    "year": 1847
+  },
+  {
+    "author": "Albert Camus",
+    "state": "New",
+    "imageLink": "images/l-etranger.jpg",
+    "type": "novel)",
+    "pages": 185,
+    "title": "The Stranger",
+    "year": 1942
+  },
+  {
+    "author": "Paul Celan",
+    "state": "Good condition",
+    "imageLink": "images/poems-paul-celan.jpg",
+    "language": "German",
+    "type": "novel",
+    "pages": 320,
+    "title": "Poems",
+    "year": 1952
+  },
+  {
+    "author": "Louis-Ferdinand C\u00e9line",
+    "state": "Good condition",
+    "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
+    "type": "novel",
+    "pages": 505,
+    "title": "Journey to the End of the Night",
+    "year": 1932
+  },
+  {
+    "author": "Miguel de Cervantes",
+    "state": "New",
+    "imageLink": "images/don-quijote-de-la-mancha.jpg",
+    "type": "novel",
+    "pages": 1056,
+    "title": "Don Quijote De La Mancha",
+    "year": 1610
+  },
+  {
+    "author": "Geoffrey Chaucer",
+    "state": "Acceptable",
+    "imageLink": "images/the-canterbury-tales.jpg",
+
+    "type": "novel",
+    "pages": 544,
+    "title": "The Canterbury Tales",
+    "year": 1450
+  },
+  {
+    "author": "Anton Chekhov",
+    "state": "Good condition",
+    "imageLink": "images/stories-of-anton-chekhov.jpg",
+    "language": "Good conditionn",
+    "type": "novel",
+    "pages": 194,
+    "title": "Stories",
+    "year": 1886
+  },
+  {
+    "author": "Joseph Conrad",
+    "state": "New",
+    "imageLink": "images/nostromo.jpg",
+
+    "type": "novel",
+    "pages": 320,
+    "title": "Nostromo",
+    "year": 1904
+  },
+  {
+    "author": "Charles Dickens",
+    "state": "New",
+    "imageLink": "images/great-expectations.jpg",
+
+    "type": "novel",
+    "pages": 194,
+    "title": "Great Expectations",
+    "year": 1861
+  },
+  {
+    "author": "Denis Diderot",
+    "state": "Good condition",
+    "imageLink": "images/jacques-the-fatalist.jpg",
+    "type": "novel",
+    "pages": 596,
+    "title": "Jacques the Fatalist",
+    "year": 1796
+  },
+  {
+    "author": "Alfred D\u00f6blin",
+    "state": "Acceptable",
+    "imageLink": "images/berlin-alexanderplatz.jpg",
+    "language": "German",
+    "type": "novel",
+    "pages": 600,
+    "title": "Berlin Alexanderplatz",
+    "year": 1929
+  },
+  {
+    "author": "Fyodor Dostoevsky",
+    "state": "Good condition",
+    "imageLink": "images/crime-and-punishment.jpg",
+    "language": "Good conditionn",
+    "type": "novel",
+    "title": "Crime and Punishment",
+    "year": 1866
+  },
+  {
+    "author": "Fyodor Dostoevsky",
+    "state": "Good condition",
+    "imageLink": "images/the-idiot.jpg",
+    "language": "Good conditionn",
+    "type": "novel",
+    "pages": 656,
+    "title": "The Idiot",
+    "year": 1869
+  },
+  {
+    "author": "Fyodor Dostoevsky",
+    "state": "Good condition",
+    "imageLink": "images/the-possessed.jpg",
+    "language": "Good conditionn",
+    "type": "novel",
+    "pages": 768,
+    "title": "The Possessed",
+    "year": 1872
+  },
+  {
+    "author": "Fyodor Dostoevsky",
+    "state": "Good condition",
+    "imageLink": "images/the-brothers-karamazov.jpg",
+    "language": "Good conditionn",
+    "type": "novel",
+    "pages": 824,
+    "title": "The Brothers Karamazov",
+    "year": 1880
+  },
+  {
+    "author": "George Eliot",
+    "state": "New",
+    "imageLink": "images/middlemarch.jpg",
+
+    "type": "novel",
+    "pages": 800,
+    "title": "Middlemarch",
+    "year": 1871
+  },
+  {
+    "author": "Ralph Ellison",
+    "state": "quite used",
+    "imageLink": "images/invisible-man.jpg",
+
+    "type": "novel",
+    "pages": 581,
+    "title": "Invisible Man",
+    "year": 1952
+  },
+  {
+    "author": "Euripides",
+    "state": "Acceptable",
+    "imageLink": "images/medea.jpg",
+    "language": "Greek",
+    "type": "novel",
+    "pages": 104,
+    "title": "Medea",
+    "year": -431
+  },
+  {
+    "author": "William Faulkner",
+    "state": "quite used",
+    "imageLink": "images/absalom-absalom.jpg",
+
+    "type": "novel",
+    "pages": 313,
+    "title": "Absalom, Absalom!",
+    "year": 1936
+  },
+  {
+    "author": "William Faulkner",
+    "state": "quite used",
+    "imageLink": "images/the-sound-and-the-fury.jpg",
+
+    "type": "novel",
+    "pages": 326,
+    "title": "The Sound and the Fury",
+    "year": 1929
+  },
+  {
+    "author": "Gustave Flaubert",
+    "state": "Good condition",
+    "imageLink": "images/madame-bovary.jpg",
+    "type": "novel",
+    "pages": 528,
+    "title": "Madame Bovary",
+    "year": 1857
+  },
+  {
+    "author": "Gustave Flaubert",
+    "state": "Good condition",
+    "imageLink": "images/l-education-sentimentale.jpg",
+    "type": "novel",
+    "pages": 606,
+    "title": "Sentimental Education",
+    "year": 1869
+  },
+  {
+    "author": "Federico Garc\u00eda Lorca",
+    "state": "New",
+    "imageLink": "images/gypsy-ballads.jpg",
+    "type": "novel",
+    "pages": 218,
+    "title": "Gypsy Ballads",
+    "year": 1928
+  },
+  {
+    "author": "Gabriel Garc\u00eda M\u00e1rquez",
+    "state": "Good condition",
+    "imageLink": "images/one-hundred-years-of-solitude.jpg",
+    "type": "novel",
+    "pages": 417,
+    "title": "One Hundred Years of Solitude",
+    "year": 1967
+  },
+  {
+    "author": "Gabriel Garc\u00eda M\u00e1rquez",
+    "state": "Good condition",
+    "imageLink": "images/love-in-the-time-of-cholera.jpg",
+    "type": "novel",
+    "pages": 368,
+    "title": "Love in the Time of Cholera",
+    "year": 1985
+  },
+  {
+    "author": "Johann Wolfgang von Goethe",
+    "state": "New",
+    "imageLink": "images/faust.jpg",
+    "type": "novel",
+    "pages": 158,
+    "title": "Faust",
+    "year": 1832
+  },
+  {
+    "author": "Nikolai Gogol",
+    "state": "Good condition",
+    "imageLink": "images/dead-souls.jpg",
+    "type": "novel",
+    "pages": 432,
+    "title": "Dead Souls",
+    "year": 1842
+  },
+  {
+    "author": "G\u00fcnter Grass",
+    "state": "Acceptable",
+    "imageLink": "images/the-tin-drum.jpg",
+    "type": "novel",
+    "pages": 600,
+    "title": "The Tin Drum",
+    "year": 1959
+  },
+  {
+    "author": "Jo\u00e3o Guimar\u00e3es Rosa",
+    "state": "quite used",
+    "imageLink": "images/the-devil-to-pay-in-the-backlands.jpg",
+    "type": "novel",
+    "pages": 494,
+    "title": "The Devil to Pay in the Backlands",
+    "year": 1956
+  },
+  {
+    "author": "Knut Hamsun",
+    "state": "quite used",
+    "imageLink": "images/hunger.jpg",
+    "type": "novel",
+    "pages": 176,
+    "title": "Hunger",
+    "year": 1890
+  },
+  {
+    "author": "Ernest Hemingway",
+    "state": "quite used",
+    "imageLink": "images/the-old-man-and-the-sea.jpg",
+
+    "type": "novel",
+    "pages": 128,
+    "title": "The Old Man and the Sea",
+    "year": 1952
+  },
+  {
+    "author": "Homer",
+    "state": "Acceptable",
+    "imageLink": "images/the-iliad-of-homer.jpg",
+    "type": "novel",
+    "pages": 608,
+    "title": "Iliad",
+    "year": -735
+  },
+  {
+    "author": "Homer",
+    "state": "Acceptable",
+    "imageLink": "images/the-odyssey-of-homer.jpg",
+    "type": "novel",
+    "pages": 374,
+    "title": "Odyssey",
+    "year": -800
+  },
+  {
+    "author": "James Joyce",
+    "state": "Acceptable",
+    "imageLink": "images/ulysses.jpg",
+
+    "type": "novel",
+    "pages": 228,
+    "title": "Ulysses",
+    "year": 1922
+  },
+  {
+    "author": "Franz Kafka",
+    "state": "New",
+    "imageLink": "images/stories-of-franz-kafka.jpg",
+    "type": "novel",
+    "pages": 488,
+    "title": "Stories",
+    "year": 1924
+  },
+  {
+    "author": "Franz Kafka",
+    "state": "Acceptable",
+    "imageLink": "images/the-trial.jpg",
+    "type": "novel",
+    "pages": 160,
+    "title": "The Trial",
+    "year": 1925
+  },
+  {
+    "author": "Franz Kafka",
+    "state": "New",
+    "imageLink": "images/the-castle.jpg",
+    "type": "novel",
+    "pages": 352,
+    "title": "The Castle",
+    "year": 1926
+  },
+  {
+    "author": "K\u0101lid\u0101sa",
+    "state": "New",
+    "imageLink": "images/the-recognition-of-shakuntala.jpg",
+    "type": "novel",
+    "pages": 147,
+    "title": "The recognition of Shakuntala",
+    "year": 150
+  },
+  {
+    "author": "Yasunari Kawabata",
+    "state": "Acceptable",
+    "imageLink": "images/the-sound-of-the-mountain.jpg",
+    "type": "novel",
+    "pages": 288,
+    "title": "The Sound of the Mountain",
+    "year": 1954
+  },
+  {
+    "author": "Nikos Kazantzakis",
+    "state": "Acceptable",
+    "imageLink": "images/zorba-the-greek.jpg",
+    "type": "novel",
+    "pages": 368,
+    "title": "Zorba the Greek",
+    "year": 1946
+  },
+  {
+    "author": "D. H. Lawrence",
+    "state": "New",
+    "imageLink": "images/sons-and-lovers.jpg",
+
+    "type": "novel",
+    "pages": 432,
+    "title": "Sons and Lovers",
+    "year": 1913
+  },
+  {
+    "author": "Halld\u00f3r Laxness",
+    "state": "quite used",
+    "imageLink": "images/independent-people.jpg",
+    "type": "novel",
+    "pages": 470,
+    "title": "Independent People",
+    "year": 1934
+  },
+  {
+    "author": "Giacomo Leopardi",
+    "state": "New",
+    "imageLink": "images/poems-giacomo-leopardi.jpg",
+
+    "type": "\n",
+    "pages": 184,
+    "title": "Poems",
+    "year": 1818
+  },
+  {
+    "author": "Doris Lessing",
+    "state": "New",
+    "imageLink": "images/the-golden-notebook.jpg",
+
+    "type": "novel",
+    "pages": 688,
+    "title": "The Golden Notebook",
+    "year": 1962
+  },
+  {
+    "author": "Astrid Lindgren",
+    "state": "quite used",
+    "imageLink": "images/pippi-longstocking.jpg",
+    "type": "novel",
+    "pages": 160,
+    "title": "Pippi Longstocking",
+    "year": 1945
+  },
+  {
+    "author": "Lu Xun",
+    "state": "quite used",
+    "imageLink": "images/diary-of-a-madman.jpg",
+    "type": "novel",
+    "pages": 389,
+    "title": "Diary of a Madman",
+    "year": 1918
+  },
+  {
+    "author": "Naguib Mahfouz",
+    "state": "quite used",
+    "imageLink": "images/children-of-gebelawi.jpg",
+    "type": "novel",
+    "pages": 355,
+    "title": "Children of Gebelawi",
+    "year": 1959
+  },
+  {
+    "author": "Thomas Mann",
+    "state": "Acceptable",
+    "imageLink": "images/buddenbrooks.jpg",
+    "type": "novel",
+    "pages": 736,
+    "title": "Buddenbrooks",
+    "year": 1901
+  },
+  {
+    "author": "Thomas Mann",
+    "state": "Acceptable",
+    "imageLink": "images/the-magic-mountain.jpg",
+    "type": "novel",
+    "pages": 720,
+    "title": "The Magic Mountain",
+    "year": 1924
+  },
+  {
+    "author": "Herman Melville",
+    "state": "quite used",
+    "imageLink": "images/moby-dick.jpg",
+
+    "type": "novel",
+    "pages": 378,
+    "title": "Moby Dick",
+    "year": 1851
+  },
+  {
+    "author": "Michel de Montaigne",
+    "state": "Good condition",
+    "imageLink": "images/essais.jpg",
+    "type": "Montaigne",
+    "pages": 404,
+    "title": "Essays",
+    "year": 1595
+  },
+  {
+    "author": "Elsa Morante",
+    "state": "New",
+    "imageLink": "images/history.jpg",
+
+    "type": "novel",
+    "pages": 600,
+    "title": "History",
+    "year": 1974
+  },
+  {
+    "author": "Toni Morrison",
+    "state": "quite used",
+    "imageLink": "images/beloved.jpg",
+
+    "type": "novel",
+    "pages": 321,
+    "title": "Beloved",
+    "year": 1987
+  },
+  {
+    "author": "Murasaki Shikibu",
+    "state": "Acceptable",
+    "imageLink": "images/the-tale-of-genji.jpg",
+    "type": "novel",
+    "pages": 1360,
+    "title": "The Tale of Genji",
+    "year": 1006
+  },
+  {
+    "author": "Robert Musil",
+    "state": "Acceptable",
+    "imageLink": "images/the-man-without-qualities.jpg",
+    "type": "novel",
+    "pages": 365,
+    "title": "The Man Without Qualities",
+    "year": 1931
+  },
+  {
+    "author": "Vladimir Nabokov",
+    "state": "Good condition",
+    "imageLink": "images/lolita.jpg",
+
+    "type": "novel",
+    "pages": 317,
+    "title": "Lolita",
+    "year": 1955
+  },
+  {
+    "author": "George Orwell",
+    "state": "New",
+    "imageLink": "images/nineteen-eighty-four.jpg",
+
+    "type": "novel",
+    "pages": 272,
+    "title": "Nineteen Eighty-Four",
+    "year": 1949
+  },
+  {
+    "author": "Ovid",
+    "state": "Good condition",
+    "imageLink": "images/the-metamorphoses-of-ovid.jpg",
+    "type": "novel",
+    "pages": 576,
+    "title": "Metamorphoses",
+    "year": 100
+  },
+  {
+    "author": "Fernando Pessoa",
+    "state": "Good condition",
+    "imageLink": "images/the-book-of-disquiet.jpg",
+    "type": "novel",
+    "pages": 272,
+    "title": "The Book of Disquiet",
+    "year": 1928
+  },
+  {
+    "author": "Edgar Allan Poe",
+    "state": "quite used",
+    "imageLink": "images/tales-and-poems-of-edgar-allan-poe.jpg",
+
+    "type": "novel",
+    "pages": 842,
+    "title": "Tales",
+    "year": 1950
+  },
+  {
+    "author": "Marcel Proust",
+    "state": "Good condition",
+    "imageLink": "images/a-la-recherche-du-temps-perdu.jpg",
+    "type": "novel",
+    "pages": 2408,
+    "title": "In Search of Lost Time",
+    "year": 1920
+  },
+  {
+    "author": "Fran\u00e7ois Rabelais",
+    "state": "Good condition",
+    "imageLink": "images/gargantua-and-pantagruel.jpg",
+    "type": "novel",
+    "pages": 623,
+    "title": "Gargantua and Pantagruel",
+    "year": 1533
+  },
+  {
+    "author": "Juan Rulfo",
+    "state": "Good condition",
+    "imageLink": "images/pedro-paramo.jpg",
+    "type": "novel",
+    "pages": 124,
+    "title": "Pedro Paramo",
+    "year": 1955
+  },
+  {
+    "author": "Rumi",
+    "state": "Good condition",
+    "imageLink": "images/the-masnavi.jpg",
+    "type": "novel",
+    "pages": 438,
+    "title": "The Masnavi",
+    "year": 1236
+  },
+  {
+    "author": "Salman Rushdie",
+    "state": "New",
+    "imageLink": "images/midnights-children.jpg",
+
+    "type": "novel",
+    "pages": 536,
+    "title": "Midnights Children",
+    "year": 1981
+  },
+  {
+    "author": "Saadi",
+    "state": "New",
+    "imageLink": "images/bostan.jpg",
+    "type": "book",
+    "pages": 298,
+    "title": "Bostan",
+    "year": 1257
+  },
+  {
+    "author": "Tayeb Salih",
+    "state": "New",
+    "imageLink": "images/season-of-migration-to-the-north.jpg",
+    "type": "novel",
+    "pages": 139,
+    "title": "Season of Migration to the North",
+    "year": 1966
+  },
+  {
+    "author": "Jos\u00e9 Saramago",
+    "state": "New",
+    "imageLink": "images/blindness.jpg",
+    "type": "novel",
+    "pages": 352,
+    "title": "Blindness",
+    "year": 1995
+  },
+  {
+    "author": "William Shakespeare",
+    "state": "Acceptable",
+    "imageLink": "images/hamlet.jpg",
+
+    "type": "novel",
+    "pages": 432,
+    "title": "Hamlet",
+    "year": 1603
+  },
+  {
+    "author": "William Shakespeare",
+    "state": "Acceptable",
+    "imageLink": "images/king-lear.jpg",
+
+    "type": "novel",
+    "pages": 384,
+    "title": "King Lear",
+    "year": 1608
+  },
+  {
+    "author": "William Shakespeare",
+    "state": "Acceptable",
+    "imageLink": "images/othello.jpg",
+
+    "type": "novel",
+    "pages": 314,
+    "title": "Othello",
+    "year": 1609
+  },
+  {
+    "author": "Sophocles",
+    "state": "Acceptable",
+    "imageLink": "images/oedipus-the-king.jpg",
+    "type": "novel",
+    "pages": 88,
+    "title": "Oedipus the King",
+    "year": -430
+  },
+  {
+    "author": "Stendhal",
+    "state": "Good condition",
+    "imageLink": "images/le-rouge-et-le-noir.jpg",
+    "type": "novel",
+    "pages": 576,
+    "title": "The Red and the Black",
+    "year": 1830
+  },
+  {
+    "author": "Laurence Sterne",
+    "state": "Acceptable",
+    "imageLink": "images/the-life-and-opinions-of-tristram-shandy.jpg",
+
+    "type": "novel",
+    "pages": 640,
+    "title": "The Life And Opinions of Tristram Shandy",
+    "year": 1760
+  },
+  {
+    "author": "Italo Svevo",
+    "state": "New",
+    "imageLink": "images/confessions-of-zeno.jpg",
+
+    "type": "novel",
+    "pages": 412,
+    "title": "Confessions of Zeno",
+    "year": 1923
+  },
+  {
+    "author": "Jonathan Swift",
+    "state": "Good condition",
+    "imageLink": "images/gullivers-travels.jpg",
+
+    "type": "novel",
+    "pages": 178,
+    "title": "Gullivers Travels",
+    "year": 1726
+  },
+  {
+    "author": "Leo Tolstoy",
+    "state": "Good condition",
+    "imageLink": "images/war-and-peace.jpg",
+    "type": "novel",
+    "pages": 1296,
+    "title": "War and Peace",
+    "year": 1867
+  },
+  {
+    "author": "Leo Tolstoy",
+    "state": "Good condition",
+    "imageLink": "images/anna-karenina.jpg",
+    "type": "novel",
+    "pages": 864,
+    "title": "Anna Karenina",
+    "year": 1877
+  },
+  {
+    "author": "Leo Tolstoy",
+    "state": "Good condition",
+    "imageLink": "images/the-death-of-ivan-ilyich.jpg",
+    "type": "book",
+    "pages": 92,
+    "title": "The Death of Ivan Ilyich",
+    "year": 1886
+  },
+  {
+    "author": "Mark Twain",
+    "state": "quite used",
+    "imageLink": "images/the-adventures-of-huckleberry-finn.jpg",
+
+    "type": "novel",
+    "pages": 224,
+    "title": "The Adventures of Huckleberry Finn",
+    "year": 1884
+  },
+  {
+    "author": "Valmiki",
+    "state": "New",
+    "imageLink": "images/ramayana.jpg",
+    "type": "book",
+    "pages": 152,
+    "title": "Ramayana",
+    "year": -450
+  },
+  {
+    "author": "Virgil",
+    "state": "New",
+    "imageLink": "images/the-aeneid.jpg",
+    "type": "book",
+    "pages": 442,
+    "title": "The Aeneid",
+    "year": -23
+  },
+  {
+    "author": "Vyasa",
+    "state": "New",
+    "imageLink": "images/the-mahab-harata.jpg",
+    "type": "book",
+    "pages": 276,
+    "title": "Mahabharata",
+    "year": -700
+  },
+  {
+    "author": "Walt Whitman",
+    "state": "quite used",
+    "imageLink": "images/leaves-of-grass.jpg",
+
+    "type": "book",
+    "pages": 152,
+    "title": "Leaves of Grass",
+    "year": 1855
+  },
+  {
+    "author": "Virginia Woolf",
+    "state": "New",
+    "imageLink": "images/mrs-dalloway.jpg",
+
+    "type": "book",
+    "pages": 216,
+    "title": "Mrs Dalloway",
+    "year": 1925
+  },
+  {
+    "author": "Virginia Woolf",
+    "state": "New",
+    "imageLink": "images/to-the-lighthouse.jpg",
+
+    "type": "book",
+    "pages": 209,
+    "title": "To the Lighthouse",
+    "year": 1927
+  },
+  {
+    "author": "Marguerite Yourcenar",
+    "state": "Good condition",
+    "imageLink": "images/memoirs-of-hadrian.jpg",
+    "type": "book",
+    "pages": 408,
+    "title": "Memoirs of Hadrian",
+    "year": 1951
+  }
+]
