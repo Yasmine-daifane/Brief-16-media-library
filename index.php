@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,22 +24,25 @@
     <header class="section">
         <div class="container px_0">
             <div class="row">
-                <div class="col">
+                <div class="col-6">
                     <div class="row">
                         <div class="logo">
-                            <img class="h-25 logo " src="image_bckg/logo.png" alt="logo">
+                            <img class=" logo " src="image_bckg/logo.png" alt="logo">
                             <p class="">BOOK me</p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row "> 
+                      <div class="col-6">
                         <div class="w-100">
-                            <h1 class="m-lg-5">INSTEAD OF BUYING </h1>
+                            <h1 class="m-lg-5 w-100">INSTEAD OF BUYING </h1>
 
-                            <p class="m-lg-4">one ,why not rent a book and save ?</p>
+                            <p class="m-lg-4 w-100">one ,why not rent a book and save ?</p>
                         </div>
+                     </div>
                     </div>
                 </div>
-                <div class="col">
+
+                <div class="col-6">
                     <div class="w-100">
                         <div class="row mx-0">
                             <div class="col-12 text-center p-0">
@@ -201,13 +205,36 @@
 
     <main>
 
-        <section class="imgsec">
+        <article>
+              <h2 class="text-center pt-5 fw-bold">ABOUT US<h2>
+        <p class="text-center fs-3 mt-5 ">
 
-            <img src="image_bckg/Rectangle_21.png" class="w-100" alt="SECTION2">
+        We're a team of avid readers who are dedicated to sharing our love of books with others. Our library booking website was created with the goal of providing an easy, 
+        convenient way for fellow book lovers to access their favorite titles. We're committed to promoting literacy and fostering a community of passionate readers.
+         Thank you for choosing our library booking website -
+         we can't wait to help you find your next great read
+        </p>
+        </article>
+    
+        <section>
+            
+        <section>
+           
 
 
-        </section>
-
+      
+        <footer class="footer-container  ">
+            
+      
+    <div class="social-links d-flex align-items-center   " style="    padding: 2rem 10px;">
+      <div class="link " style="    padding: 2rem 10px;"><a href="#"><i class="fa fa-facebook"></i></a></div>
+      <div class="link"  style="    padding: 2rem 10px;"><a href="#"><i class="fa fa-instagram"></i></a></div>
+      <div class="link"  style="    padding: 2rem 10px; "><a href="#"><i class="fa fa-twitter"></i></a></div>
+    </div>
+    <div class="copyright">
+      <p>&copy; ©2023 BOOK Lovers | Privacy Policy</p>
+    </div>
+  </footer>
 
 
     </main>

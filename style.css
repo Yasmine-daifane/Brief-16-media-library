@@ -6,21 +6,22 @@
 header{
     background-image: url(image_bckg/labra.jpg);
     background-size: cover;
-    height: 100vh;
+    height: 98vh;
 }
 
 .logo {
 
-
+     padding :0;
+     margin: 0;
     font-family: 'Dancing Script', cursive;
 
     color: #9E8365;
-  
+   height: 8rem;
      
  
 }
 .m-lg-5{
-
+     
     padding-left: 15%;
     font-size: 33px;
     color: white;
@@ -326,10 +327,43 @@ h6 span {
     color: #ffeba7;
     box-shadow: 0 8px 24px 0 rgba(16, 39, 112, .2);
 }
-
-section .imgsec{
- background-image: url(image_bckg/Rectangle_21.png);
+article{
+ background-image: url(image_bckg/paper.avif);
  background-size: cover;
- height: 100vh;
+ height: 70vh;
 
 }
+
+h2
+{
+    color: #3A1F12;
+    
+    
+}
+.social-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-links .link {
+    padding: 2rem 10px;
+  }
+  
+  .social-links .link a {
+    color: #000;
+  }
+  
+  .social-links .link a:hover {
+    color: #9E8365;
+  }
+
+  .footer-container {
+    background-color: #705A37;
+   
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
