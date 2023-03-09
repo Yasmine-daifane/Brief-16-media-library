@@ -1,3 +1,26 @@
+<?php
+require "connect.php";
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+if (isset($_POST['signup'])) {
+    $name = test_input($_POST['signname']);
+    $mail = test_input($_POST['email']);
+    $address = test_input($_POST['address']);
+    $phone = test_input($_POST['phone']);
+    $cin = test_input($_POST['cin']);
+    $date = test_input($_POST['date']);
+    $occupation = test_input($_POST['occupation']);
+    $nickname = test_input($_POST['nickname']);
+    $password = test_input($_POST['password']);
+    $cpassword = test_input($_POST['confirm_password']);
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -17,7 +40,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="landingpage.css">
 </head>
 
 <body>
@@ -28,24 +51,24 @@
                     <div class="row">
                         <div class="logo">
                             <img class=" logo " src="image_bckg/logo.png" alt="logo">
-                            <p class="">BOOK me</p>
+                            <p class="">BOOK lovers</p>
                         </div>
                     </div>
-                    <div class="row "> 
-                      <div class="col-6">
-                        <div class="w-100">
-                            <h1 class="m-lg-5 w-100">INSTEAD OF BUYING </h1>
+                    <div class="row ">
+                        <div class="col-6">
+                            <div class="w-100">
+                                <h1 class="m-lg-5 w-100">INSTEAD OF BUYING </h1>
 
-                            <p class="m-lg-4 w-100">one ,why not rent a book and save ?</p>
+                                <p class="m-lg-4 w-100">one ,why not rent a book and save ?</p>
+                            </div>
                         </div>
-                     </div>
                     </div>
                 </div>
 
                 <div class="col-6">
                     <div class="w-100">
                         <div class="row mx-0">
-                            <div class="col-12 text-center p-0">
+                            <div class="col-12 text-center p-0 ">
                                 <div class="text-center">
                                     <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
                                     <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
@@ -56,11 +79,9 @@
                                                 <div class="center-wrap">
                                                     <div class="section text-center">
                                                         <h4 class="mb-4 pb-3">Log In</h4>
-
-                                                        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
                                                             <div class="form-group">
                                                                 <input type="text" name="nickname" class="form-style text-black" placeholder="Your nickname" id="nickname" autocomplete="off" required="" pattern="[a-zA-Z]+" title="Your own unique nickname">
-
                                                             </div>
                                                             <div class="form-floating mb-3 ">
                                                                 <input type="password" name="logpass" class="form-style text-black" placeholder="Your Password" id="logpass" autocomplete="off" required="" title="Your own password">
@@ -87,30 +108,26 @@
                                                 <div class="center-wrap">
                                                     <div class="section text-center">
                                                         <h4 class="">Sign Up</h4>
-                                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                                                             <div class="form-group text-black">
                                                                 <input type="text" name="signname" class="form-style text-black" placeholder="Your Full Name" id="signname" autocomplete="off" required="" pattern="^[a-zA-Z-' ]+$">
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="email" name="email" class="form-style text-black" placeholder="Your Email" id="email" autocomplete="off" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="text" name="address" class="form-style text-black" placeholder="Your address" id="address" autocomplete="off" required="" pattern="^[a-zA-Z-' -\d]+$">
-
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="tel" name="phone" class="form-style text-black" placeholder="Your phone" id="phone" autocomplete="off" required="" pattern="^(06|07|05)\d{8}">
-
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="text" name="cin" class="form-style text-black" placeholder="Your C.I.N" id="cin" autocomplete="off" required="" pattern="^[a-zA-Z0-9-' -]+$">
-
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="date" name="date" class="form-style text-black" placeholder="Your birth date" id="date" autocomplete="off" required="" pattern="" max="" min="">
-                                                                <p id="date-error" style="display:none; color:red;">Please enter your birthdate .</p>
-
+                                                                <p id="date-error" style="display:none; color:red;">
+                                                                    Please enter your birthdate .</p>
                                                                 <script>
                                                                     const currentDate = new Date();
                                                                     currentDate.setDate(currentDate.getDate() - 1);
@@ -118,10 +135,8 @@
                                                                     const minDate = "1900-01-01";
                                                                     const dateField = document.getElementById("date");
                                                                     const dateError = document.getElementById("date-error");
-
                                                                     dateField.setAttribute("max", maxDate);
                                                                     dateField.setAttribute("min", minDate);
-
                                                                     // Add an event listener to the date input field  
                                                                     dateField.addEventListener("input", function() {
                                                                         const selectedDate = new Date(this.value);
@@ -134,24 +149,18 @@
                                                                         }
                                                                     });
                                                                 </script>
-
-
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="text" name="occupation" class="form-style text-black" placeholder="Your occupation" id="occupation" autocomplete="off" required="" pattern="(Student|officials|housewife|employee)i">
-
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="text" name="nickname" class="form-style text-black" placeholder="Enter nickname" id="nickname" autocomplete="off" required="" pattern="^[a-zA-Z0-9]{1,20}$">
-
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="password" name="password" class="form-style text-black" placeholder="your password" id="password" autocomplete="off" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{10,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
-
                                                             </div>
                                                             <div class="form-group mt-2">
-                                                                <input type="password" name="cpassword" class="form-style text-black" placeholder="Conform password" id="cpassword" autocomplete="off" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{10,}">
-
+                                                                <input type="password" name="confirm_password" class="form-style text-black" placeholder="Conform password" id="cpassword" autocomplete="off" required="" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{10,}">
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <div class="form-check">
@@ -159,7 +168,8 @@
                                                                     <label class="form-check-label" for="flexCheckDefault">
                                                                         checking that you are agreeing to
                                                                     </label><br>
-                                                                    <a class="text-decoration-underline text-light" data-bs-toggle="modal" data-bs-target="#term&conditions">Term & condition of
+                                                                    <a class="text-decoration-underline text-light" data-bs-toggle="modal" data-bs-target="#term&conditions">Term &
+                                                                        condition of
                                                                         user</a>
                                                                 </div>
                                                             </div>
@@ -194,7 +204,8 @@
                             <li>The validity of a reservation is limited to 24 hours.</li>
                             <li>The loan period must not exceed 15 days.</li>
                             <li>A person who submits a work beyond 15 days, receives a penalty.</li>
-                            <li>A person who accumulates more than 3 penalties does not have the right to continue to borrow
+                            <li>A person who accumulates more than 3 penalties does not have the right to continue to
+                                borrow
                                 the books. And his account will be immediately locked.</li>
                             <li>No operation will be possible without authentication, even a simple consultation.</li>
                         </ul>
@@ -206,35 +217,137 @@
     <main>
 
         <article>
-              <h2 class="text-center pt-5 fw-bold">ABOUT US<h2>
-        <p class="text-center fs-3 mt-5 ">
+            <h2 class="text-center pt-5 fw-bold">ABOUT US<h2>
+                    <p class="text-center fs-3 mt-5 ">
 
-        We're a team of avid readers who are dedicated to sharing our love of books with others. Our library booking website was created with the goal of providing an easy, 
-        convenient way for fellow book lovers to access their favorite titles. We're committed to promoting literacy and fostering a community of passionate readers.
-         Thank you for choosing our library booking website -
-         we can't wait to help you find your next great read
-        </p>
+                        We're a team of avid readers who are dedicated to sharing our love of books with others. Our
+                        library booking website was created with the goal of providing an easy,
+                        convenient way for fellow book lovers to access their favorite titles. We're committed to
+                        promoting literacy and fostering a community of passionate readers.
+                        Thank you for choosing our library booking website -
+                        we can't wait to help you find your next great read
+                    </p>
         </article>
-    
+
         <section>
-            
-        <section>
-           
+
+            <div class="content d-flex align-items-center justify-content-center">
+                <div class="container rounded">
+                    <h3 class="h1 fw-bold text-center mt-2 "> POPULAR BOOKS </h3>
+                    <div class="h3 text-center pt-2"></div>
+                    <div class="fs-5 text-center pb-3 mb-3"></div>
+                    <div class="rollers position-relative overflow-hidden">
+                        <div class="start-roller"></div>
+                        <div class="wrapper">
+                            <div class="items-container roll-LL">
+                                <div class="item">
+                                    <img src="images/hunger.jpg" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/ficciones.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/crime-and-punishment.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/beloved.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/confessions-of-zeno.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/voyage-au-bout-de-la-nuit.jpg" alt="" class="company">
+                                </div>
+                            </div>
+                            <div class="items-container roll-RL">
+                                <div class="item">
+                                    <img src="images/zorba-the-greek.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/wuthering-heights.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/king-lear.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/war-and-peace.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/voyage-au-bout-de-la-nuit.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/ulysses.jpg" alt="" class="company">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="wrapper">
+                            <div class="items-container reverse-roll-LL">
+                                <div class="item">
+                                    <img src="images/to-the-lighthouse.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/the-trial.jpg  " alt="  " class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/the-tale-of-genji.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/the-possessed.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/faust.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/gargantua-and-pantagruel.jpg" alt="" class="company">
+                                </div>
+
+                            </div>
+                            <div class="items-container reverse-roll-RL">
+                                <div class="item">
+                                    <img src="images/the-metamorphoses-of-ovid.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/a-la-recherche-du-temps-perdu.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/dead-souls.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/anna-karenina.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/beloved.jpg" alt="" class="company">
+                                </div>
+                                <div class="item">
+                                    <img src="images/crime-and-punishment.jpg" alt="" class="company">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="end-roller"></div>
+                    </div>
+                </div>
+            </div>
+
+            <section>
 
 
-      
-        <footer class="footer-container  ">
-            
-      
-    <div class="social-links d-flex align-items-center   " style="    padding: 2rem 10px;">
-      <div class="link " style="    padding: 2rem 10px;"><a href="#"><i class="fa fa-facebook"></i></a></div>
-      <div class="link"  style="    padding: 2rem 10px;"><a href="#"><i class="fa fa-instagram"></i></a></div>
-      <div class="link"  style="    padding: 2rem 10px; "><a href="#"><i class="fa fa-twitter"></i></a></div>
-    </div>
-    <div class="copyright">
-      <p>&copy; ©2023 BOOK Lovers | Privacy Policy</p>
-    </div>
-  </footer>
+
+
+                <footer class="footer-container  ">
+
+
+                    <div class="social-links d-flex align-items-center   " style="    padding: 2rem 10px;">
+                        <div class="link " style="    padding: 2rem 10px;"><a href="#"><i class="fa fa-facebook"></i></a></div>
+                        <div class="link" style="    padding: 2rem 10px;"><a href="#"><i class="fa fa-instagram"></i></a></div>
+                        <div class="link" style="    padding: 2rem 10px; "><a href="#"><i class="fa fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>&copy; ©2023 BOOK Lovers | Privacy Policy</p>
+                    </div>
+                </footer>
 
 
     </main>

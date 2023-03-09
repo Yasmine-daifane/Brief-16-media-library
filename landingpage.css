@@ -2,7 +2,10 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+
 }
+
+
 header{
     background-image: url(image_bckg/labra.jpg);
     background-size: cover;
@@ -39,6 +42,9 @@ header{
 
 
 }
+
+
+
 
 #login {
     font-family: 'changa', sans-serif;
@@ -82,6 +88,10 @@ h6 span {
     text-transform: uppercase;
     font-weight: 700;
     color: #FFFFFF;
+
+}
+
+h3{
 
 }
 
@@ -334,7 +344,7 @@ article{
 
 }
 
-h2
+h2,h3
 {
     color: #3A1F12;
     
@@ -366,4 +376,156 @@ h2
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+
+
+  /* hussein  */
+
+
+  /* Reseting */
+.content .container {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    box-shadow: 2px 15px 20px #1f1f1f10, -2px -8px 20px #1f1f1f1a;
+  
+    border-radius: 40px;
+  }
+  
+  .container .rollers {
+      background: #95775fb6;
+      border-radius: 40px;
+    flex: 0 0 230px;
+  }
+  
+  .container .start-roller {
+    left: 0;
+    top: 0;
+    /* background-image: linear-gradient(to right, white 30%, #ffffff00); */
+  
+  }
+  
+  .container .start-roller,
+  .container .end-roller {
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .container .end-roller {
+    right: 0;
+    top: 0;
+   
+  }
+  
+  .container .rollers .wrapper {
+    position: relative;
+    width: 1400px;
+    height: 100px;
+    margin: 0 0 20px 0;
+    flex: 0 0 auto;
+  }
+  
+  .container .rollers .wrapper .items-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .container .rollers .wrapper .items-container.roll-LL {
+    animation-name: roll;
+  }
+  .container .rollers .wrapper .items-container.roll-RL {
+    animation-name: roll-reverse;
+    left: 100%;
+  }
+  .container .rollers .wrapper .items-container.reverse-roll-LL {
+    animation-name: roll-clockwise;
+    left: -100%;
+  }
+  .container .rollers .wrapper .items-container.reverse-roll-RL {
+    animation-name: roll-reverse-clockwise;
+    left: 100%;
+  }
+  
+  @keyframes roll {
+    0% {
+      left: 0%;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+  @keyframes roll-reverse {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: 0%;
+    }
+  }
+  @keyframes roll-clockwise {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 0%;
+    }
+  }
+  @keyframes roll-reverse-clockwise {
+    0% {
+      left: 0%;
+    }
+    100% {
+      left: 100%;
+    }
+    
+  }
+  
+  .container .rollers .wrapper .items-container .item {
+    flex: 1 1 200px;
+    min-width: 0;
+    margin: 20px;
+  }
+  
+  .container .rollers .wrapper .items-container .item .company {
+    filter: grayscale(100%);
+    opacity: 1;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+  }
+  
+  .container .rollers .wrapper .items-container .item .company:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    cursor: pointer;
+  }
+  
+  .container img {
+    vertical-align: middle;
+  }
+  
+  @media (max-width: 575.5px) {
+    .content {
+      padding: 20px;
+    }
+    .content .container {
+      padding: 20px;
+    }
+    .h3 {
+      font-size: calc(1.1rem + 0.6vw);
+    }
+    .fs-5 {
+      font-size: 0.9rem !important;
+    }
+    .container .rollers .wrapper .items-container .item .company {
+      opacity: 0.4;
+    }
   }
