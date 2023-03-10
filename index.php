@@ -1,12 +1,16 @@
 <?php
+
 require "connect.php";
+include "fonctions.php";
+
 function test_input($data)
 {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-}
+} 
+
 if (isset($_POST['signup'])) {
     $name = test_input($_POST['signname']);
     $mail = test_input($_POST['email']);
@@ -18,7 +22,57 @@ if (isset($_POST['signup'])) {
     $nickname = test_input($_POST['nickname']);
     $password = test_input($_POST['password']);
     $cpassword = test_input($_POST['confirm_password']);
+
+     
+    $signuser= new adéherent ($Nicname, $fullname, $cin, $email, $birthdate, $occupation, $phone,$address);
+
+
+     $exNicname = "SELECT * FROM `adhérent` where Nickname = $Nicname";
+      $sql=$conn -> query($exNicname) ;
+      $exdNicname=$sql ->fetch(PDO::FETCH_ASSOC);
+     
+
+
+     $exemail ="SELECT * FROM `adhérent`  where  email	=$email ";
+     $sql=$conn->query($exemail);
+     $exdemail= $sql->fetch(PDO::FETCH_ASSOC);
+
+
+
+     $excin="SELECT * FROM `adhérent` where CIN = $cin ";
+     $sql =$conn->query($excin);
+     $exdcin=$sql->fetch(PDO::FETCH_ASSOC);
+
+ 
+     if (is_array( $exdemail)){
+
+         $emailtaken ="this email is already taken ";
+     } else if(is_array( $exdcin) ){
+
+        $cintaken =" this cin is already taken  ";
+
+    } else if(is_array($exNicname) ){
+
+        $Nicknametaken =" this email is already taken  ";
+
+    } else {
+        
+        $hachage= $signuser->password($password);
+        $who =$signuser->ROLE($Nicname);
+
+        $insertion= "INSERT INTO `adhérent` (`Id_adhérent`, `adresse`, `email`, `phone`, `CIN`, `birth_date`, `occupation`, `pénalité`, `compte_date`, `Nickname`, `password`, `full_name`, `role`) 
+        VALUES (null, '$signuser->address','$signuser->email', '$signuser->phone', '$signuser->cin','$signuser-> birthdate' , '$signuser->occupation', NOW(),'$signuser->$Nicname' , ' $signuser->$hachage' ,'$signuser->$fullname'  , '$who' )";
+       
+       $sql=$conn->query($insertion);
+
+      header('Location:index.php');
+
+  
+          
+    }
+
 }
+
 ?>
 
 <html lang="en">
@@ -83,6 +137,20 @@ if (isset($_POST['signup'])) {
                                                             <div class="form-group">
                                                                 <input type="text" name="nickname" class="form-style text-black" placeholder="Your nickname" id="nickname" autocomplete="off" required="" pattern="[a-zA-Z]+" title="Your own unique nickname">
                                                             </div>
+                                                             
+                                                            <?php
+                                                if (isset($Nicknametaken)) {
+                                                    $element =
+                                                        "<div class=\"alert alert-danger mt-2 d-flex align-items-center\" role=\"alert\">
+                                                            <div>
+                                                            $Nicknametaken
+                                                            </div>
+                                                        </div>";
+                                                    echo $element;
+                                                }
+                                                ?>
+
+
                                                             <div class="form-floating mb-3 ">
                                                                 <input type="password" name="logpass" class="form-style text-black" placeholder="Your Password" id="logpass" autocomplete="off" required="" title="Your own password">
                                                             </div>
@@ -115,6 +183,22 @@ if (isset($_POST['signup'])) {
                                                             <div class="form-group mt-2">
                                                                 <input type="email" name="email" class="form-style text-black" placeholder="Your Email" id="email" autocomplete="off" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                                                             </div>
+
+
+                                                                          
+                                                            <?php
+                                                if (isset($emailtaken)) {
+                                                    $element =
+                                                        "<div class=\"alert alert-danger mt-2 d-flex align-items-center\" role=\"alert\">
+                                                            <div>
+                                                            $emailtaken
+                                                            </div>
+                                                        </div>";
+                                                    echo $element;
+                                                }
+                                                ?>
+                                                                   
+
                                                             <div class="form-group mt-2">
                                                                 <input type="text" name="address" class="form-style text-black" placeholder="Your address" id="address" autocomplete="off" required="" pattern="^[a-zA-Z-' -\d]+$">
                                                             </div>
@@ -124,6 +208,19 @@ if (isset($_POST['signup'])) {
                                                             <div class="form-group mt-2">
                                                                 <input type="text" name="cin" class="form-style text-black" placeholder="Your C.I.N" id="cin" autocomplete="off" required="" pattern="^[a-zA-Z0-9-' -]+$">
                                                             </div>
+
+
+                                                                         <?php
+                                                if (isset( $cintaken)) {
+                                                    $element =
+                                                        "<div class=\"alert alert-danger mt-2 d-flex align-items-center\" role=\"alert\">
+                                                            <div>
+                                                            $cintaken
+                                                            </div>
+                                                        </div>";
+                                                    echo $element;
+                                                }
+                                                ?>
                                                             <div class="form-group mt-2">
                                                                 <input type="date" name="date" class="form-style text-black" placeholder="Your birth date" id="date" autocomplete="off" required="" pattern="" max="" min="">
                                                                 <p id="date-error" style="display:none; color:red;">
@@ -151,7 +248,7 @@ if (isset($_POST['signup'])) {
                                                                 </script>
                                                             </div>
                                                             <div class="form-group mt-2">
-                                                                <input type="text" name="occupation" class="form-style text-black" placeholder="Your occupation" id="occupation" autocomplete="off" required="" pattern="(Student|officials|housewife|employee)i">
+                                                                <input type="text" name="occupation" class="form-style text-black" placeholder="Your occupation" id="occupation" autocomplete="off" required="" >
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="text" name="nickname" class="form-style text-black" placeholder="Enter nickname" id="nickname" autocomplete="off" required="" pattern="^[a-zA-Z0-9]{1,20}$">

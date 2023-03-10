@@ -9,7 +9,8 @@ class adéherent
     public $birthdate;
     public $occupation;
     public $phone;
-    public function __construct($Nicname, $fullname, $cin, $email, $birthdate, $occupation, $phone)
+    public $address;
+    public function __construct($Nicname, $fullname, $cin, $email, $birthdate, $occupation, $phone,$address )
     {
         $this->birthdate = $birthdate;
         $this->Nicname = $Nicname;
@@ -18,6 +19,7 @@ class adéherent
         $this->occupation = $occupation;
         $this->phone = $phone;
         $this->fullname = $fullname;
+        $this-> address= $address;
     }
     public function password($password)
     {
@@ -36,6 +38,7 @@ class adéherent
     }
 
 }
+
 
 
 
