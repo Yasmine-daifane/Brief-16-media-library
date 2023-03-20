@@ -26,5 +26,4 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //  $conn->exec($sql);
 // }
-$conn = null;
 
