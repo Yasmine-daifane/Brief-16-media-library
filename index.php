@@ -34,13 +34,13 @@ if (isset($_POST['signup'])) {
 
 
 
-    $exemail = "SELECT * FROM `adhérent`  where  email	='$mail' ";
+    $exemail = "SELECT * FROM `adhérent`  where  email	='$mail'";
     $sql = $conn->query($exemail);
     $exdemail = $sql->fetch(PDO::FETCH_ASSOC);
 
 
 
-    $excin = "SELECT * FROM `adhérent` where CIN = '$cin' ";
+    $excin = "SELECT * FROM `adhérent` where CIN = '$cin'";
     $sql = $conn->query($excin);
     $exdcin = $sql->fetch(PDO::FETCH_ASSOC);
 
@@ -65,10 +65,37 @@ if (isset($_POST['signup'])) {
         VALUES (null, '$signuser->address','$signuser->email', '$signuser->phone', '$signuser->cin','$signuser->birthdate' , '$signuser->occupation','0', NOW(),'$signuser->Nicname', '$hachage','$signuser->fullname', '$who')";
 
         $sql = $conn->query($insertion);
-        header('Location:index.php');
-        
     }
 
+} elseif (isset($_POST['login'])) {
+    $nickname = test_input($_POST['nickname']);
+    $password = test_input($_POST['logpass']);
+    $check_account = "SELECT * FROM adhérent WHERE Nickname = '$nickname'";
+    $check_account = $conn->query($check_account);
+    if ($check_account = $check_account->fetch(PDO::FETCH_ASSOC)) {
+        if (password_verify($password, $check_account['password'])) {
+            if ($check_account['Role'] == 0) {
+                session_start();
+                $_SESSION['full_name'] = $check_account['full_name'];
+                $_SESSION['nickname'] = $check_account['Nickname'];
+                $_SESSION['password'] = $check_account['password'];
+                $_SESSION['id_member'] = $check_account['Id_adhérent'];
+                header("Location: ./user/user.php");
+            } else {
+                session_start();
+                $_SESSION['full_name'] = $check_account['full_name'];
+                $_SESSION['nickname'] = $check_account['Nickname'];
+                $_SESSION['password'] = $check_account['password'];
+                $_SESSION['id_member'] = $check_account['Id_adhérent'];
+                header("Location: ./Admin/admin.php");
+            }
+        } else {
+            echo $check_account['password'];
+            $login_error = "You can't use your account any more";
+        }
+    } else {
+        $login_error = "This account not exist";
+    }
 }
 
 ?>
