@@ -77,16 +77,16 @@ if (isset($_POST['signup'])) {
             if ($check_account['Role'] == 0) {
                 session_start();
                 $_SESSION['full_name'] = $check_account['full_name'];
-                $_SESSION['nickname'] = $check_account['Nickname'];
+                $_SESSION['Nickname'] = $check_account['Nickname'];
                 $_SESSION['password'] = $check_account['password'];
-                $_SESSION['id_member'] = $check_account['Id_adhérent'];
+                $_SESSION['Id_adhérent'] = $check_account['Id_adhérent'];
                 header("Location: ./user/user.php");
             } else {
                 session_start();
                 $_SESSION['full_name'] = $check_account['full_name'];
-                $_SESSION['nickname'] = $check_account['Nickname'];
+                $_SESSION['Nickname'] = $check_account['Nickname'];
                 $_SESSION['password'] = $check_account['password'];
-                $_SESSION['id_member'] = $check_account['Id_adhérent'];
+                $_SESSION['Id_adhérent'] = $check_account['Id_adhérent'];
                 header("Location: ./Admin/admin.php");
             }
         } else {
