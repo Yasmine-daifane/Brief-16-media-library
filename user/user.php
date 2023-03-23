@@ -1,5 +1,9 @@
 <?php
-// session_start();
-echo "hello user";
+include "../connect.php";
+
+  
+
+
 
 ?>
+
