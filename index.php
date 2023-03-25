@@ -2,7 +2,6 @@
 
 require "connect.php";
 include "fonctions.php";
-
 function test_input($data)
 {
     $data = trim($data);
@@ -72,9 +71,9 @@ if (isset($_POST['signup'])) {
     $password = test_input($_POST['logpass']);
     $check_account = "SELECT * FROM adhérent WHERE Nickname = '$nickname'";
     $check_account = $conn->query($check_account);
-    if ($check_account = $check_account->fetch(PDO::FETCH_ASSOC)) {
+    if ($check_account = $check_account->fetch(PDO::FETCH_ASSOC)) { 
         if (password_verify($password, $check_account['password'])) {
-            if ($check_account['Role'] == 0) {
+            if ($check_account['role'] == 0) {
                 session_start();
                 $_SESSION['full_name'] = $check_account['full_name'];
                 $_SESSION['Nickname'] = $check_account['Nickname'];
@@ -87,7 +86,7 @@ if (isset($_POST['signup'])) {
                 $_SESSION['Nickname'] = $check_account['Nickname'];
                 $_SESSION['password'] = $check_account['password'];
                 $_SESSION['Id_adhérent'] = $check_account['Id_adhérent'];
-                header("Location: ./Admin/admin.php");
+                header("Location: ./backoffice/backoffice.php");
             }
         } else {
             echo $check_account['password'];
@@ -168,7 +167,7 @@ if (isset($_POST['signup'])) {
                                                                 <input type="text" name="nickname"
                                                                     class="form-style text-black"
                                                                     placeholder="Your nickname" id="nickname"
-                                                                    autocomplete="off" required="" pattern="[a-zA-Z]+"
+                                                                    autocomplete="off" required="" 
                                                                     title="Your own unique nickname">
                                                             </div>
 
