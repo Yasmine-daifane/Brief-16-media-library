@@ -6,9 +6,9 @@
 }
 
 header{
-    background-image: url(image_bckg/backg.png);
+    background-image: url(../image_bckg/backg.png);
     background-size: cover;
-    height: 98vh;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
