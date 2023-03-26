@@ -1,3 +1,10 @@
+<?php
+include "../connect.php";
+if (isset($_POST[''])) {
+  # code...
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -30,38 +37,29 @@
       </div>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <div class="d-flex justify-content-around">
+          <li class="nav-item">
             <a class="nav-link" href="#">HOME</a>
-
-          </div>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
-
-  <header>
-    <h1 class="text-center  fs-2 justify-content-center mt-5">Welcome to Book Lovers Library!<br>
-      Our website is dedicated to serving book lovers like you <svg xmlns="http://www.w3.org/2000/svg" width="50"
-        height="50" viewBox="0 0 24 24" style="vertical-align: middle;
-                position: absolute;
-                top: 51%;
-                right: 20%;
-                color: #abd5f9;">
-        <path fill="currentColor"
-          d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z" />
-      </svg></h1>
-    <div class="container">
-      <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-8">
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8">
+        <form action="" method="post">
           <div class="search">
             <i class="fa fa-search"></i>
-            <input type="text" class="form-control" placeholder="Have a question? Ask Now">
+            <input type="text" class="form-control" placeholder="Book title">
             <button class="btn btn-primary">Search</button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
-    <!-- <iconify-icon icon="mdi:heart" style="color: #abd5f9;height: 10px; width: 10px;"></iconify-icon> -->
-  </header>
+  </div>
+  <main>
+
+  </main>
 </body>
 
 </html>
