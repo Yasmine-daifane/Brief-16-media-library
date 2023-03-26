@@ -42,5 +42,28 @@
             </div>
         </div>
     </nav>
+    <section class="d-flex justify-content-center mt-5">
+        <form method="post" class="search">
+            <div class="row g-3 align-items-center border border-secondary border-1 rounded pb-3 fs-5 px-3 fw-bold">
 
+                <div class="col-auto">
+                    <label for="title" class="col-form-label">Title</label>
+                </div>
+                <div class="col-auto">
+                    <input  id="title" name="title" class="form-control">
+                </div>
+                <div class="col-auto">
+                    <label for="nickname" class="col-form-label">User Nickname</label>
+                </div>
+                <div class="col-auto">
+                    <input  id="nickname" name="nickname" class="form-control">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" name="search" value="Search" class="btn btn-primary"
+                        aria-describedby="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    
 </body>
