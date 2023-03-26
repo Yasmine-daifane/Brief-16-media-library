@@ -71,7 +71,7 @@ if (isset($_POST['signup'])) {
     $password = test_input($_POST['logpass']);
     $check_account = "SELECT * FROM adhérent WHERE Nickname = '$nickname'";
     $check_account = $conn->query($check_account);
-    if ($check_account = $check_account->fetch(PDO::FETCH_ASSOC)) { 
+    if ($check_account = $check_account->fetch(PDO::FETCH_ASSOC)) {
         if (password_verify($password, $check_account['password'])) {
             if ($check_account['role'] == 0) {
                 session_start();
@@ -114,7 +114,7 @@ if (isset($_POST['signup'])) {
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
-        
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -167,7 +167,7 @@ if (isset($_POST['signup'])) {
                                                                 <input type="text" name="nickname"
                                                                     class="form-style text-black"
                                                                     placeholder="Your nickname" id="nickname"
-                                                                    autocomplete="off" required="" 
+                                                                    autocomplete="off" required=""
                                                                     title="Your own unique nickname">
                                                             </div>
 
