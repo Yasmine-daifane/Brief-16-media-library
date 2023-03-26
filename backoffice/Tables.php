@@ -50,13 +50,13 @@
                     <label for="title" class="col-form-label">Title</label>
                 </div>
                 <div class="col-auto">
-                    <input  id="title" name="title" class="form-control">
+                    <input id="title" name="title" class="form-control">
                 </div>
                 <div class="col-auto">
                     <label for="nickname" class="col-form-label">User Nickname</label>
                 </div>
                 <div class="col-auto">
-                    <input  id="nickname" name="nickname" class="form-control">
+                    <input id="nickname" name="nickname" class="form-control">
                 </div>
                 <div class="col-auto">
                     <button type="submit" name="search" value="Search" class="btn btn-primary"
@@ -65,5 +65,21 @@
             </div>
         </form>
     </section>
-    
+    <section class="px-5 mt-5">
+        <div class="px-5">
+            <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
+                Today reservation
+            </div>
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+    </section>
 </body>
