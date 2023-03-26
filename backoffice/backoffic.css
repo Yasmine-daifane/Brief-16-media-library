@@ -1,97 +1,48 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-header{
-    background-image: url(../image_bckg/backg.png);
-    background-size: cover;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-h1{
-
-    width: 1060px;
-height: 328.58px;
-left: 107px;
-top: 160.07px;
-
-font-family: 'Changa';
-font-style: normal;
-font-weight: 400;
-font-size: 38px;
-line-height: 70px;
-display: flex;
-align-items: center;
-text-align: center;
-
-color: #FFFFFF;
+h1 {
+  width: 1060px;
+  height: 328.58px;
+  left: 107px;
+  top: 160.07px;
+  font-family: "Changa";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
 }
 
 .logo {
-
-    padding :0;
-    margin: 0;
-   font-family: 'Dancing Script', cursive;
-
-   color: #9E8365;
+  padding: 0;
+  margin: 0;
+  font-family: "Dancing Script", cursive;
+  color: #9e8365;
   height: 4rem;
-
-    
-
 }
 
-.navbar{
-
-    background-color: #9e8365;
-  
+.navbar {
+  background-color: #9e8365;
 }
 
-   
+.search input:focus {
+  box-shadow: none;
+  border: 2px solid #3a1f12;
+}
+.search select:focus {
+  box-shadow: none;
+  border: 2px solid #3a1f12;
+}
 
-   .search{
-   position: relative;
-   box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-     
-   }
-
-   .search input{
-
-    height: 60px;
-    text-indent: 25px;
-    border: 2px solid #d6d4d4;
-
-
-   }
-
-
-   .search input:focus{
-
-    box-shadow: none;
-    border: 2px solid #3A1F12;
-
-
-   }
-
-   .search .fa-search{
-
-    position: absolute;
-    top: 20px;
-    left: 16px;
-
-   }
-
-   .search button{
-
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    height: 50px;
-    width: 110px;
-    background: #3A1F12;
-   }
+.search button {
+  height: 50px;
+  width: 110px;
+  background: #3a1f12;
+}
