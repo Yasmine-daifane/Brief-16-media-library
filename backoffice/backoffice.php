@@ -108,7 +108,7 @@ if (isset($_POST['search'])) {
   </nav>
   <section class="d-flex justify-content-center mt-5">
     <form method="post" class="search">
-      <div class="row g-3 align-items-center border border-secondary border-1 rounded pb-3 fs-5 px-3 fw-bold">
+      <div class="row g-3 align-items-center rounded pb-3 fs-5 px-3 fw-bold">
         <div class="col-auto">
           <label for="type" class="col-form-label">Type</label>
         </div>
