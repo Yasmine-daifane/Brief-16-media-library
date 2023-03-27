@@ -19,7 +19,7 @@ foreach ($books_array as $book) {
        VALUES ('$title', ' $author', '$image', '$state', '$type',NOW() , '$publishing_date','$pages')";
 
     $conn->exec($sql);}
-
+  
 $conn = null;
 
 
