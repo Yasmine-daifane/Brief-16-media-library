@@ -25,7 +25,7 @@ if (isset($_POST['search'])) {
 
 
 
-    $filter = "SELECT * FROM reservation";
+    $filter = "SELECT * FROM l_emprunt";
     if (!empty($search_param)) {
         if (count($search_param) == 1) {
             $filter .= " WHERE " . implode($search_param);
@@ -47,9 +47,9 @@ if (isset($_POST['search'])) {
     $endIndex = $pageId * 8;
     $StartIndex = $endIndex - 8;
 
-    $sql = ("SELECT * FROM `reservation` LIMIT 8 OFFSET $StartIndex");
+    $sql = ("SELECT * FROM `l_emprunt` LIMIT 8 OFFSET $StartIndex");
 
-    $page = 'SELECT * FROM reservation';
+    $page = 'SELECT * FROM l_emprunt';
 
     $reservation_lentgh = $conn->query($page)->rowCount();
 
@@ -62,8 +62,8 @@ if (isset($_POST['search'])) {
         $pagesNum = ceil($reservation_lentgh / 8);
     }
 
-    $result_reservation = $conn->query($sql);
-    $reservation = $result_reservation->fetchAll(PDO::FETCH_ASSOC);
+    $borrowing = $conn->query($sql);
+    $borrowing = $borrowing->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
@@ -111,6 +111,9 @@ if (isset($_POST['search'])) {
                     <li class="nav-item">
                         <a class="nav-link" href="Borrowing.php">Borrowing</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#add-modal">add book</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -152,9 +155,8 @@ if (isset($_POST['search'])) {
                         foreach ($result as $book) {
                             $id_book = $book['Id_ouvrage'];
                             $id_memebr = $book['Id_adhérent'];
-                            $date = $book['date_de_reservation'];
                             $id_reservation = $book['Id_reservation'];
-
+                            $id_loan = $book['Id_l_emprunt'];
 
                             $user_nikename = "SELECT nickname FROM adhérent WHERE Id_adhérent = '$id_memebr'";
                             $nikename = $conn->query($user_nikename);
@@ -175,11 +177,10 @@ if (isset($_POST['search'])) {
                                         reserved by:
                                         <?php echo $nikename['nickname'] ?>
                                     </p>
-                                    <form action="Valid.php" method="post">
-                                        <input type="hidden" value="<?php echo $id_reservation ?>" name="valid_reseravtion">
+                                    <form action="check_return.php" method="post">
+                                        <input type="hidden" value="<?php echo $id_loan ?>" name="valid_loan">
                                         <input type="hidden" value="<?php echo $id_memebr ?>" name="valid_member">
-                                        <input type="hidden" value="<?php echo $id_book ?>" name="valid_book">
-                                        <button class="btn btn-success" type="submit" name="valid_reservation">Valid</button>
+                                        <button class="btn btn-success" type="submit" name="valid_reservation">Returned</button>
                                     </form>
                                 </div>
                             </div>
@@ -193,17 +194,16 @@ if (isset($_POST['search'])) {
         <section class="px-5 mt-5">
             <div class="px-5">
                 <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
-                    Today reservation
+                    Borrowing
                 </div>
                 <div>
                     <?php
-                    if (count($reservation) > 0) {
-                        foreach ($reservation as $book) {
+                    if (count($borrowing) > 0) {
+                        foreach ($borrowing as $book) {
                             $id_book = $book['Id_ouvrage'];
                             $id_memebr = $book['Id_adhérent'];
-                            $date = $book['date_de_reservation'];
                             $id_reservation = $book['Id_reservation'];
-
+                            $id_loan = $book['Id_l_emprunt'];
 
                             $user_nikename = "SELECT nickname FROM adhérent WHERE Id_adhérent = '$id_memebr'";
                             $nikename = $conn->query($user_nikename);
@@ -224,11 +224,10 @@ if (isset($_POST['search'])) {
                                         reserved by:
                                         <?php echo $nikename['nickname'] ?>
                                     </p>
-                                    <form action="Valid.php" method="post">
-                                        <input type="hidden" value="<?php echo $id_reservation ?>" name="valid_reseravtion">
+                                    <form action="check_return.php" method="post">
+                                        <input type="hidden" value="<?php echo $id_loan ?>" name="valid_loan">
                                         <input type="hidden" value="<?php echo $id_memebr ?>" name="valid_member">
-                                        <input type="hidden" value="<?php echo $id_book ?>" name="valid_book">
-                                        <button class="btn btn-success" type="submit" name="valid_reservation">Valid</button>
+                                        <button class="btn btn-success" type="submit" name="valid_reservation">Returned</button>
                                     </form>
                                 </div>
                             </div>
@@ -248,4 +247,81 @@ if (isset($_POST['search'])) {
         </nav>
     <?php }
     ?>
+    <!-- modal reservations -->
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="reservation" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <div class="card">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="" alt="book image" id="book-image" class="img-fluid rounded-start">
+                                <!-- <p class="text-danger">NB* : every reservation last for 24H </p> -->
+                            </div>
+                            <div class="col-md-8">
+                                <form action="edit.php" method="get">
+                                    <div class="card-body p-5">
+                                        loading...
+                                    </div>
+                                    <input type="hidden" id="input" name="input">
+                                    <button type="submit" name="confirmation" class="confirmation">Confirm</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- add modal -->
+    <div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-xl">
+            <div class="modal-content text-center">
+                <div class="modal-header text-center">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="information">
+                        <form action="add.php" method="get">
+                            <div class="d-flex">
+                                <div class="w-100 p-5">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">title</label>
+                                        <input type="text" name="title" class="form-control" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">author</label>
+                                        <input type="text" name="author" class="form-control" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">image</label>
+                                        <input type="file" class="form-control" name="image" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">state</label>
+                                        <input type="text" class="form-control" name="state" required="">
+                                    </div>
+                                </div>
+                                <div class="w-100 p-5">
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">publishing date</label>
+                                        <input type="date" class="form-control" name="publishing_date" required="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">pages</label>
+                                        <input type="number" class="form-control" name="pages" required="">
+                                    </div>
+                                    <div class=" mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">type</label>
+                                        <input type="text" class="form-control" name="type" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-info" type="submit" name="update_prof">add book</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
