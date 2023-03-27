@@ -8,19 +8,19 @@ if (isset($_POST['search'])) {
     $search_param = array();
     if (!empty($_POST['title'])) {
         $title = "title = '{$_POST['title']}'";
-        $book_title = "SELECT Id_book FROM books WHERE $title";
+        $book_title = "SELECT Id_ouvrage FROM ouvrage WHERE $title";
         $id_book = $conn->query($book_title);
         $id_book = $id_book->fetch(PDO::FETCH_ASSOC);
-        $id_book = $id_book['Id_book'];
-        $search_param[] = "Id_book = '$id_book'";
+        $id_book = $id_book['Id_ouvrage'];
+        $search_param[] = "Id_ouvrage = '$id_book'";
     }
     if (!empty($_POST['nikename'])) {
         $nickname = "nickname = '{$_POST['nikename']}'";
-        $nickname = "SELECT id_member FROM members WHERE $nickname";
+        $nickname = "SELECT Id_adhérent FROM adhérent WHERE $nickname";
         $id_member = $conn->query($nickname);
         $id_member = $id_member->fetch(PDO::FETCH_ASSOC);
-        $id_member = $id_member['id_member'];
-        $search_param[] = "id_member = '$id_member'";
+        $id_member = $id_member['Id_adhérent'];
+        $search_param[] = "Id_adhérent = '$id_member'";
     }
 
 
@@ -205,12 +205,19 @@ if (isset($_POST['search'])) {
                             <div class="card" style="width: 18rem;">
                                 <img src="../<?php echo $resulte['l_mage_de_couverture'] ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?php echo $resulte['titre'] ?></h5>
+                                    <h5 class="card-title">
+                                        <?php echo $resulte['titre'] ?>
+                                    </h5>
                                     <p class="card-text">
-                                        reserved by: 
+                                        reserved by:
                                         <?php echo $nikename['nickname'] ?>
                                     </p>
-                                    <a href="#" class="btn btn-succecs">Valide</a>
+                                    <form action="Valid.php" method="post">
+                                        <input type="hidden" value="<?php echo $id_reservation ?>" name="valid_reseravtion">
+                                        <input type="hidden" value="<?php echo $id_memebr ?>" name="valid_member">
+                                        <input type="hidden" value="<?php echo $id_book ?>" name="valid_book">
+                                        <button class="btn btn-success" type="submit" name="valid_reservation">Valid</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
