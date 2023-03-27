@@ -146,7 +146,7 @@ if (isset($_POST['search'])) {
                 <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
                     Search result
                 </div>
-                <div>
+                <div  class="d-flex flex-wrap" style="gap: 3em;">
                     <?php
                     if (count($result) > 0) {
                         foreach ($result as $book) {
@@ -195,7 +195,7 @@ if (isset($_POST['search'])) {
                 <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
                     Today reservation
                 </div>
-                <div>
+                <div  class="d-flex flex-wrap" style="gap: 3em;">
                     <?php
                     if (count($reservation) > 0) {
                         foreach ($reservation as $book) {
@@ -203,7 +203,6 @@ if (isset($_POST['search'])) {
                             $id_memebr = $book['Id_adhérent'];
                             $date = $book['date_de_reservation'];
                             $id_reservation = $book['Id_reservation'];
-
 
                             $user_nikename = "SELECT nickname FROM adhérent WHERE Id_adhérent = '$id_memebr'";
                             $nikename = $conn->query($user_nikename);

@@ -149,7 +149,7 @@ if (isset($_POST['search'])) {
                 <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
                     Search result
                 </div>
-                <div>
+                <div class="d-flex flex-wrap" style="gap: 3em;">
                     <?php
                     if (count($result) > 0) {
                         foreach ($result as $book) {
@@ -196,7 +196,7 @@ if (isset($_POST['search'])) {
                 <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
                     Borrowing
                 </div>
-                <div>
+                <div  class="d-flex flex-wrap" style="gap: 3em;">
                     <?php
                     if (count($borrowing) > 0) {
                         foreach ($borrowing as $book) {
