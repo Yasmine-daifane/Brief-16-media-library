@@ -207,6 +207,58 @@ if (isset($_GET['confirmation'])) {
     <?php
     }
     ?>
+     <?php
+    if (isset($_POST['search'])) {
+      ?>
+      <section class="px-5 mt-5">
+        <div class="px-5">
+          <div class="h3 fw-bold pb-2 mb-4 text-dark  border-dark">
+            Your search result
+          </div>
+          <div class="d-flex flex-wrap" style="gap: 3em;">
+            <?php
+            foreach ($result as $book) {
+              ?>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="../<?php echo $book['l_mage_de_couverture'] ?>" alt="book-cover"
+                      style="width:310px;height:400px;">
+                  </div>
+                  <div class="flip-card-back">
+                    <h2 class="mt-5 fs-4">
+                      <?php echo $book['titre'] ?>
+                    </h2>
+                    <p class="text-black">
+                      <?php echo $book['nom_de_l_auteur'] ?>
+                    </p>
+                    <p class="text-black">
+                      <?php echo $book['la_date_d_édition'] ?>
+                    </p>
+                    <p class="text-black">
+                      <?php echo $book['l_etat'] ?>
+                    </p>
+                    <form id="reserve" method="post">
+                      <input type="hidden" name="id" value="<?php echo $book['Id_ouvrage'] ?>">
+                      <button type="submit" name="Reserve" class="reservation px-4 py-2"
+                        data-bookid="<?php echo $book['Id_ouvrage'] ?>">Edite</button>
+                    </form>
+                    <form action="delete.php" method="post">
+                      <input type="hidden" name="id" value="<?php echo $book['Id_ouvrage'] ?>">
+                      <button type="submit" class="btn btn-danger mt-2">Delete</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <?php
+            }
+            ?>
+          </div>
+        </div>
+      </section>
+      <?php
+     } else {
+         ?>
     <section class="px-5 mt-5">
         <div class="px-5">
             <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
@@ -215,7 +267,7 @@ if (isset($_GET['confirmation'])) {
             <div class="d-flex flex-wrap" style="gap: 3em;">
                 <?php
                 foreach ($books as $book) {
-                ?>
+                    ?>
                     <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
@@ -249,7 +301,7 @@ if (isset($_GET['confirmation'])) {
                     </div>
                 <?php
                 }
-
+     }
                 ?>
             </div>
         </div>
