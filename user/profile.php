@@ -88,7 +88,7 @@ $member = $stmt->Fetch(PDO::FETCH_ASSOC);
                             <a class="nav-link" href="user.php">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Tables.php">Tables</a>
+                            <a class="nav-link" href="Tables.php">my reservation &emprunt</a>
                         </li>
                     </ul>
                 </div>
@@ -141,82 +141,21 @@ $member = $stmt->Fetch(PDO::FETCH_ASSOC);
                         </div>
                         <button class="btn btn-danger mb-3" type="submit" name="update_prof">update profile</button>
                     </form>
-                </div>
-            </div>
-            </div>
-            <div class="d-flex justify-content-center gap-5 mt-5">
+                    <div class="d-flex justify-content-center gap-5 mt-5">
                 <form action="logout.php" method="get">
                     <button type="submit" class="btn_log">
                         Log out
                     </button>
                 </form>
             </div>
+                </div>
+            </div>
+            </div>
+           
         </section>
     </main>
-    <!-- Password  Modal -->
-    <div class="modal fade" id="password" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Change your Password</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="update.php" method="get">
-                    <div class="modal-body">
-                        <div class="form-group mt-2">
-                            <input type="password" name="old_pass" class="form-style pass" placeholder="Your current Password" id="old_pass" autocomplete="off" required="" title="Your own password">
-                            <i class="togglePassword input-icon far fa-eye" style="margin-left: 25rem; cursor: pointer;"></i>
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="password" name="new_pass" class="form-style pass" placeholder="New Password" id="new_pass" autocomplete="off" required="" title="Your own password">
-                            <i class="togglePassword input-icon far fa-eye" style="margin-left: 25rem; cursor: pointer;"></i>
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <div class="form-group mt-2">
-                            <input type="password" name="c_new_pass" class="form-style pass" placeholder="Confirm new Password" id="c_new_pass" autocomplete="off" required="" title="Your own password">
-                            <i class="togglePassword input-icon far fa-eye" style="margin-left: 25rem; cursor: pointer;"></i>
-                            <i class="input-icon uil uil-lock-alt"></i>
-                        </div>
-                        <div id="warning">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" name="update_pass" class="btn_log">Save changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <script>
-        const togglePassword = document.querySelectorAll(".togglePassword");
-        // const password = document.querySelectorAll(".pass");
-        for (let i = 0; i < togglePassword.length; i++) {
-            togglePassword[i].addEventListener("click", function(e) {
-                // toggle the type attribute
-                let input = togglePassword[i].closest("div").firstElementChild;
-                const type =
-                    input.getAttribute("type") === "password" ? "text" : "password";
-                input.setAttribute("type", type);
-                // toggle the eye slash icon
-                this.classList.toggle("fa-eye-slash");
-            });
-        }
-        let new_pass = document.getElementById('new_pass');
-        let c_new_pass = document.getElementById('c_new_pass');
-        let warning = document.getElementById('warning');
-        c_new_pass.addEventListener('input', function() {
-            if (c_new_pass.value != new_pass.value) {
-                let msg = ` <div class="alert alert-warning" role="alert">
-                                please enter the same password as abouve
-                            </div>`
-                warning.innerHTML = msg;
-            } else {
-                warning.innerHTML = ''
-            }
-        })
-    </script>
+ 
+   
 </body>
 
 </html>

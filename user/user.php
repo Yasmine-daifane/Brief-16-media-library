@@ -1,10 +1,7 @@
 <?php
 session_start();
 include "../connect.php";
-// if (isset($_POST['title_search'])) {
-//   $title = $_POST['title_search'];
-//   $sql = "SELECT * FROM ouvrage WHERE titre LIKE";
-// }
+
 $type = "SELECT DISTINCT `type` FROM `ouvrage`";
 $state = "SELECT DISTINCT `l_etat` FROM `ouvrage`";
 $types = $conn->query($type);
@@ -122,7 +119,7 @@ if (isset($_GET['confirmation'])) {
             </button>
             <div>
 
-                <p style="font-size: 13;">BOOK lovers</p>
+                <p style="font-size: 13;   font-family: 'Dancing Script', cursive;">BOOK lovers</p>
             </div>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -130,7 +127,7 @@ if (isset($_GET['confirmation'])) {
                         <a class="nav-link" href="user.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Tables.php">Tables</a>
+                        <a class="nav-link" href="Tables.php">my reservation &emprunt</a>
                     </li>
                 </ul>
             </div>
@@ -143,8 +140,8 @@ if (isset($_GET['confirmation'])) {
             <div class="col-md-9 d-flex justify-content-center justify-content-md-end">
                 <form class="mt-3 mt-md-0 w-75">
                     <div class="input-group ">
-                        <input type="search" class="form-control" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-primary" type="submit">Search</button>
+                        <input type="search" class="form-control" placeholder=" you can Search by title,state,type" aria-label="Search">
+                        <button class="btn " type="submit">Search </button>
                     </div>
                 </form>
             </div>
@@ -177,7 +174,7 @@ if (isset($_GET['confirmation'])) {
     <section class="px-5 mt-5">
         <div class="px-5">
             <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
-                books
+              THE GALLERIE OF BOOKS 
             </div>
             <div class="d-flex flex-wrap" style="gap: 3em;">
                 <?php
@@ -200,6 +197,10 @@ if (isset($_GET['confirmation'])) {
                                 </p>
                                 <p class="text-black">
                                     <?php echo $book['l_etat'] ?>
+                                </p>
+
+                                <p class="text-black">
+                                    <?php echo $book['type'] ?>
                                 </p>
 
                                 <form id="reserve" method="post">
@@ -243,9 +244,10 @@ if (isset($_GET['confirmation'])) {
                                 <form method="get">
                                     <p class="text-danger">NB* : every reservation last for 24H </p>
                                     <div class="card-body p-5">
-                                        loading...
+                                       
                                     </div>
                                     <input type="hidden" id="input" name="input">
+                                    <p class="text-warning"> if you're sure click to confirme the reservation u don't have the right to cancel it later !!</p>
                                     <button type="submit" name="confirmation" class="confirmation">Confirm</button>
                                 </form>
                             </div>

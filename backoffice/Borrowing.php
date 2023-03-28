@@ -120,7 +120,7 @@ if (isset($_POST['search'])) {
     </nav>
     <section class="d-flex justify-content-center mt-5">
         <form method="post" class="search">
-            <div class="row g-3 align-items-center border border-secondary border-1 rounded pb-3 fs-5 px-3 fw-bold">
+            <div class="row g-3 align-items-center  rounded pb-3 fs-5 px-3 fw-bold">
 
                 <div class="col-auto">
                     <label for="title" class="col-form-label">Title</label>
@@ -146,7 +146,7 @@ if (isset($_POST['search'])) {
         ?>
         <section class="px-5 mt-5">
             <div class="px-5">
-                <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
+                <div class="h3 fw-bold pb-2 mb-4 text-dark ">
                     Search result
                 </div>
                 <div class="d-flex flex-wrap" style="gap: 3em;">
@@ -193,7 +193,7 @@ if (isset($_POST['search'])) {
         ?>
         <section class="px-5 mt-5">
             <div class="px-5">
-                <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
+                <div class="h3 fw-bold pb-2 mb-4 text-dark ">
                     Borrowing
                 </div>
                 <div  class="d-flex flex-wrap" style="gap: 3em;">

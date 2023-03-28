@@ -39,20 +39,19 @@ margin: 0;
   }
 
   
-  .logo img {
-    height: 26px;
-    width: auto;
-    display: block;
-  }
+ 
 .navbar {
   background-color: #9e8365;
 }
+
+/* cards display */
 .flip-card {
     background-color: transparent;
     width: 310px;
     height: 400px;
     perspective: 1000px;
-    /* Remove this if you don't want the 3D effect */
+
+  
 }
 
 /* This container is needed to position the front and back side */
@@ -81,7 +80,7 @@ margin: 0;
     backface-visibility: hidden;
 }
 
-/* Style the front side (fallback if image is missing) */
+/* Style the front side*/
 .flip-card-front {
     background-color: #bbb;
     color: black;
@@ -90,34 +89,43 @@ margin: 0;
 /* Style the back side */
 .flip-card-back {
     color: white;
-    background-color: rgba(217, 189, 139, 1);
+    background-color:#9e8365;
     transform: rotateY(180deg);
 }
 
 .reservation {
     border: none;
-    color: bisque;
-    background-color: rgb(186, 124, 80);
+    color:#bbb;
+    background-color:#705A37;
 }
 
 .reservation:hover {
     transition: 0.3s;
-    background-color: rgb(189, 104, 104);
+    background-color: #3A1F12;
 }
 
 .confirmation {
     border: none;
     padding: 10PX 2rem;
-    color: rgb(255, 255, 255);
-    background-color: rgb(195, 175, 63);
+    color:#3A1F12;
+    background-color:red;
 }
 
 .confirmation:hover {
     border-radius: 1px;
     font-weight: bold;
-    border: 2px rgb(195, 175, 63) solid;
+    border: 2px #3A1F12 solid;
     color: rgb(195, 175, 63);
-    background-color: #fff;
+    background-color:#9e8365;
 }
 
+.btn{
 
+  background-color: #3A1F12;
+  color: aquamarine;
+}
+.btn :hover{
+
+  background-color:#705A37;
+  color: #3A1F12;
+}

@@ -28,6 +28,7 @@ class adéherent
     }
     public function ROLE($Nicname)
     {
+        //  checks if the nickname contains the string "HH" at the third position 
         if (strpos($Nicname, "HH") == 3) {
             return true;
         } else {

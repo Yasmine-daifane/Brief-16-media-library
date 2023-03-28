@@ -42,7 +42,7 @@ $my_emprunt = $result_l_emprunt->fetchAll(PDO::FETCH_ASSOC);
                         <a class="nav-link" href="user.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Tables.php">Tables</a>
+                        <a class="nav-link" href="Tables.php">my reservation &emprunt</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="profile.php">profile</a>
@@ -53,7 +53,7 @@ $my_emprunt = $result_l_emprunt->fetchAll(PDO::FETCH_ASSOC);
     </nav>
     <section class="px-5 mt-5">
         <div class="px-5">
-            <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-5 border-dark">
+            <div class="h3 fw-bold pb-2 mb-4 text-dark  border-dark">
                 My current reservation
             </div>
             <div class="d-flex flex-wrap" style="gap: 3em;">
@@ -91,14 +91,14 @@ $my_emprunt = $result_l_emprunt->fetchAll(PDO::FETCH_ASSOC);
                                     $current_time = time(); // get the current time
                                     $time_left_seconds = $date - $current_time; // calculate the time left in seconds
 
-                                    if ($time_left_seconds <= 0) {
+                                    if ($time_left_seconds <= 0) { 
                                         echo "Your loan application has expired."; // if the time has already expired, display an error message
                                     } else {
                                         $hours_left = floor($time_left_seconds / 3600); // calculate the number of hours left
                                         $minutes_left = floor(($time_left_seconds % 3600) / 60); // calculate the number of minutes left
                                         $seconds_left = $time_left_seconds % 60; // calculate the number of seconds left
 
-                                        echo "You have " . $hours_left . " hours, " . $minutes_left . " minutes, and " . $seconds_left . " seconds left to complete your loan application."; // display the remaining time
+                                        echo "You have " . $hours_left . " hours, " . $minutes_left . " minutes, and " . $seconds_left . " seconds left to complete your emprunt application."; // display the remaining time
                                     }
                                     ?>
                                 </p>
@@ -112,7 +112,7 @@ $my_emprunt = $result_l_emprunt->fetchAll(PDO::FETCH_ASSOC);
     </section>
     <section class="px-5 mt-5 mb-5">
         <div class="px-5">
-            <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-5 border-dark">
+            <div class="h3 fw-bold pb-2 mb-4 text-dark  border-dark">
                 My current emprunt
             </div>
             <div class="d-flex flex-wrap" style="gap: 3em;">
@@ -139,10 +139,7 @@ $my_emprunt = $result_l_emprunt->fetchAll(PDO::FETCH_ASSOC);
                                 <h5 class="card-title">
                                     <?php echo $resulte['titre'] ?>
                                 </h5>
-                                <p class="card-text">
-                                    emprunt par:
-                                    <?php echo $nikename['nickname'] ?>
-                                </p>
+                               
                                 <p class="card-text">
                                     emprunt in:
                                 </p>

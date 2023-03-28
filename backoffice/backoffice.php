@@ -91,8 +91,8 @@ if (isset($_POST['search'])) {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div>
-        <img class=" logo mt-0" src="../image_bckg/logo.png" alt="logo">
-        <p style="font-size: 13;">BOOK lovers</p>
+      
+        <p style="font-size: 13; font-family: 'Dancing Script', cursive;">BOOK lovers</p>
       </div>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -157,7 +157,7 @@ if (isset($_POST['search'])) {
       ?>
       <section class="px-5 mt-5">
         <div class="px-5">
-          <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-2 border-dark">
+          <div class="h3 fw-bold pb-2 mb-4 text-dark  border-dark">
             Your search result
           </div>
           <div class="d-flex flex-wrap" style="gap: 3em;">
@@ -203,17 +203,19 @@ if (isset($_POST['search'])) {
       </section>
       <?php
     } else {
+      
       ?>
       <section class="px-5 mt-5">
         <div class="px-5">
           <div class="h3 fw-bold pb-2 mb-4 text-dark border-bottom border-3 border-dark">
-            books
+            Gallerie
           </div>
           <div class="d-flex flex-wrap" style="gap: 3em;">
             <?php
             foreach ($books as $book) {
               ?>
               <div class="flip-card">
+
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
                     <img src="../<?php echo $book['l_mage_de_couverture'] ?>" alt="book-cover"
@@ -231,6 +233,7 @@ if (isset($_POST['search'])) {
                     </p>
                     <p class="text-black">
                       <?php echo $book['l_etat'] ?>
+
                     </p>
                     <form id="reserve" method="post">
                       <input type="hidden" name="id" value="<?php echo $book['Id_ouvrage'] ?>">
@@ -245,7 +248,7 @@ if (isset($_POST['search'])) {
                 </div>
               </div>
               <?php
-            }
+            } 
     }
     ?>
         </div>
@@ -272,12 +275,12 @@ if (isset($_POST['search'])) {
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="" alt="book image" id="book-image" class="img-fluid rounded-start">
-                <!-- <p class="text-danger">NB* : every reservation last for 24H </p> -->
+                 <p class="text-danger">NB* : every reservation last for 24H </p>
               </div>
               <div class="col-md-8">
                 <form action="edit.php" method="get">
                   <div class="card-body p-5">
-                    loading...
+               
                   </div>
                   <input type="hidden" id="input" name="input">
                   <button type="submit" name="confirmation" class="confirmation">Confirm</button>

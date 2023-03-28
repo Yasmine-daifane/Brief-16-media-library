@@ -2,6 +2,8 @@
 
 require "connect.php";
 include "fonctions.php";
+
+// make sure that the data is clean by removing  whitespace, backslashes,convert special characters to HTML entities
 function test_input($data)
 {
     $data = trim($data);
@@ -10,6 +12,7 @@ function test_input($data)
     return $data;
 }
 
+// make the input form validate and clean using the  test_input function 
 if (isset($_POST['signup'])) {
     $name = test_input($_POST['signname']);
     $mail = test_input($_POST['email']);
@@ -25,6 +28,7 @@ if (isset($_POST['signup'])) {
 
     $signuser = new adéherent($nickname, $name, $cin, $mail, $date, $occupation, $phone, $address);
 
+// checks if the chosen nickname already taken in the database  if the value  exisct show an error message 
 
     $exNicname = "SELECT * FROM `adhérent` where `Nickname` = '$nickname'";
     echo $exNicname;
@@ -53,7 +57,7 @@ if (isset($_POST['signup'])) {
 
     } else if (is_array($exNicname)) {
 
-        $Nicknametaken = " this email is already taken  ";
+        $Nicknametaken = " this Nickname is already taken  ";
 
     } else {
 
@@ -70,8 +74,10 @@ if (isset($_POST['signup'])) {
     $nickname = test_input($_POST['nickname']);
     $password = test_input($_POST['logpass']);
     $check_account = "SELECT * FROM adhérent WHERE Nickname = '$nickname'";
+
     $check_account = $conn->query($check_account);
     if ($check_account = $check_account->fetch(PDO::FETCH_ASSOC)) {
+
         if (password_verify($password, $check_account['password'])) {
             if ($check_account['role'] == 0) {
                 session_start();
@@ -90,10 +96,10 @@ if (isset($_POST['signup'])) {
             }
         } else {
             echo $check_account['password'];
-            $login_error = "You can't use your account any more";
+            $login_error = "You're password are  not matching  ";
         }
     } else {
-        $login_error = "This account not exist";
+        $login_error = "your nickname does not exisct ";
     }
 }
 
@@ -131,12 +137,11 @@ if (isset($_POST['signup'])) {
                 <div class="col-6">
                     <div class="row">
                         <div class="logo">
-                            <img class=" logo " src="image_bckg/logo.png" alt="logo">
-                            <p class="">BOOK lovers</p>
+                            <p class=" fw-bold fs-4">BOOK lovers</p>
                         </div>
                     </div>
                     <div class="row ">
-                        <div class="col-6">
+                        <div class="">
                             <div class="w-100">
                                 <h1 class="m-lg-5 w-100">INSTEAD OF BUYING </h1>
 
@@ -330,7 +335,7 @@ if (isset($_POST['signup'])) {
                                                                     placeholder="your password" id="password"
                                                                     autocomplete="off" required=""
                                                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{10,}"
-                                                                    title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                                                                    title="Must contain   number and one uppercase and lowercase letter and symbole , and at least 10 or more characters">
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <input type="password" name="confirm_password"
@@ -341,14 +346,14 @@ if (isset($_POST['signup'])) {
                                                             </div>
                                                             <div class="form-group mt-2">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="radio"
+                                                                    <input class="form-check-input " type="radio"
                                                                         value="agree" id="flexCheckDefault"
                                                                         name="agree">
                                                                     <label class="form-check-label"
                                                                         for="flexCheckDefault">
                                                                         checking that you are agreeing to
                                                                     </label><br>
-                                                                    <a class="text-decoration-underline text-light"
+                                                                    <a class="text-decoration-underline text-danger"
                                                                         data-bs-toggle="modal"
                                                                         data-bs-target="#term&conditions">Term &
                                                                         condition of
@@ -370,27 +375,24 @@ if (isset($_POST['signup'])) {
                 </div>
             </div>
         </div>
-        <!-- partial -->
         </div>
         <!-- Modal -->
         <div class="modal fade" id="term&conditions" tabindex="-1" aria-labelledby="term&conditions" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <p class="modal-title fs-5" id="term&conditions">Terms & conditions</p>
+                    <div class="modal-header bg-danger text-center">
+                        <p class="modal-title  fs-5" id="term&conditions">Terms & conditions</p>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <ul class="text-black fw-bold">
-                            <li>A person cannot borrow or reserve more than three books at the same time.</li>
+                            <li>Une personne ne peut pas emprunter, ni réserver plus que trois ouvrages en même temps.</li>
                             <li>A borrowing operation must be preceded by a reservation.</li>
-                            <li>The validity of a reservation is limited to 24 hours.</li>
+                            <li>La validité d’une réservation est limitée à 24 h.</li>
                             <li>The loan period must not exceed 15 days.</li>
                             <li>A person who submits a work beyond 15 days, receives a penalty.</li>
-                            <li>A person who accumulates more than 3 penalties does not have the right to continue to
-                                borrow
-                                the books. And his account will be immediately locked.</li>
-                            <li>No operation will be possible without authentication, even a simple consultation.</li>
+                            <li>Une personne qui remet un ouvrage au-delà des 15 jours, reçoit une pénalité.</li>
+                            <li>Aucune opération ne sera possible sans authentification, même une simple consultation.</li>
                         </ul>
                     </div>
                 </div>
@@ -416,7 +418,7 @@ if (isset($_POST['signup'])) {
 
             <div class="content d-flex align-items-center justify-content-center">
                 <div class="container rounded">
-                    <h3 class="h1 fw-bold text-center mt-2 "> POPULAR BOOKS </h3>
+                    <h3 class="h1 fw-bold text-center mt-2 "> OUR BOOKS </h3>
                     <div class="h3 text-center pt-2"></div>
                     <div class="fs-5 text-center pb-3 mb-3"></div>
                     <div class="rollers position-relative overflow-hidden">
@@ -512,15 +514,12 @@ if (isset($_POST['signup'])) {
                     </div>
                 </div>
             </div>
-
             <section>
 
 
 
 
                 <footer class="footer-container  ">
-
-
                     <div class="social-links d-flex align-items-center   " style="    padding: 2rem 10px;">
                         <div class="link " style="    padding: 2rem 10px;"><a href="#"><i
                                     class="fa fa-facebook"></i></a></div>
