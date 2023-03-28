@@ -137,17 +137,53 @@ if (isset($_GET['confirmation'])) {
     <header class="bg-image d-flex align-items-center justify-content-center">
         <div class="container text-center">
             <p> Welcome to Book Lovers, where pages come to life!</p>
-            <div class="col-md-9 d-flex justify-content-center justify-content-md-end">
-                <form class="mt-3 mt-md-0 w-75">
-                    <div class="input-group ">
-                        <input type="search" class="form-control" placeholder=" you can Search by title,state,type" aria-label="Search">
-                        <button class="btn " type="submit">Search </button>
-                    </div>
-                </form>
-            </div>
         </div>
     </header>
+<section class="d-flex justify-content-center mt-5">
+    <form method="post" class="search">
+      <div class="row g-3 align-items-center rounded pb-3 fs-5 px-3 fw-bold">
+        <div class="col-auto">
+          <label for="type" class="col-form-label">Type</label>
+        </div>
+        <div class="col-auto">
+          <select type="select" id="type" class="form-select" name="type" aria-describedby="passwordHelpInline">
+            <option value=""></option>
 
+            <?php
+                    for ($i = 0; $i < count($types); $i++) {
+                        $type = $types[$i]['type'];
+                        echo "<option value='$type'>$type</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label for="State" class="col-form-label">State</label>
+            </div>
+            <div class="col-auto">
+                <select type="select" id="State" name="State" class="form-select" aria-describedby="passwordHelpInline">
+                    <option value=""></option>
+                    <?php
+                    for ($i = 0; $i < count($states); $i++) {
+                        $state = $states[$i]['l_etat'];
+                        echo "<option value='$state'>$state</option>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label for="title" class="col-form-label">Title</label>
+            </div>
+            <div class="col-auto">
+                <input type="select" id="title" name="title" class="form-control" aria-describedby="passwordHelpInline">
+            </div>
+            <div class="col-auto">
+                <button type="submit" name="search" value="Search" class="btn btn-primary"
+                    aria-describedby="submit">Search</button>
+            </div>
+        </div>
+    </form>
+</section>
 
 
     <?php
