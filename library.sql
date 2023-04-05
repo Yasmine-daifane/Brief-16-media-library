@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 27 mars 2023 à 14:21
+-- Généré le : mer. 05 avr. 2023 à 15:40
 -- Version du serveur : 10.4.27-MariaDB
--- Version de PHP : 8.0.25
+-- Version de PHP : 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,8 +50,32 @@ CREATE TABLE `adhérent` (
 INSERT INTO `adhérent` (`Id_adhérent`, `adresse`, `email`, `phone`, `CIN`, `birth_date`, `occupation`, `pénalité`, `compte_date`, `Nickname`, `password`, `full_name`, `role`) VALUES
 (2, 'mers achennad', 'ilias@gmail.com', 626916989, 'KB5646367', '2001-08-06', 'student', 0, '2023-03-25', '111HH', '$2y$10$WcyH97fSIQYVzQZIEa5XauiHfQ8reGv9wts53T6kkF1lvgzqUN8cC', 'Ilias anouar', 1),
 (3, 'beniouuu', 'jalil.jojo@gmail.com', 676543568, 'HH56078', '2012-06-26', 'student', 0, '2023-03-27', 'yasmine', '$2y$10$WCAWJVJNqSEWOG7VJK/oLeOJ7S/7jB7rbm.B0ZCEEBh8LichQ3n66', 'jalil jojo', 0),
-(4, 'user house', 'user@gmail.com', 600000000, 'US0000', '2023-01-18', 'student', 0, '2023-03-27', 'user', '$2y$10$d0IKyXn6BOvlUg.6.WpOo./YonD0oyRsIl0pg78a8u8dEiH7gYhqy', 'user', 0),
+(4, 'user house', 'user@gmail.com', 600000000, 'US0000', '2023-01-18', 'student', 1, '2023-03-27', 'user', '$2y$10$d0IKyXn6BOvlUg.6.WpOo./YonD0oyRsIl0pg78a8u8dEiH7gYhqy', 'user', 0),
 (5, 'admin house', 'admin@gmail.com', 755543778, 'HH56052', '2019-10-26', 'student', 0, '2023-03-27', '888HH', '$2y$10$FiBmdyi2.ejJxfJlJCh/EuQTaPiO/NhPPo4jYxmmI15C6ZkiUUHG6', 'admin', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `archive`
+--
+
+CREATE TABLE `archive` (
+  `Id_archive` int(11) NOT NULL,
+  `Id_reservation` int(11) NOT NULL,
+  `Id_adhérent` int(11) DEFAULT NULL,
+  `Id_ouvrage` int(11) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `archive`
+--
+
+INSERT INTO `archive` (`Id_archive`, `Id_reservation`, `Id_adhérent`, `Id_ouvrage`, `status`) VALUES
+(2, 2, 4, 7, 'archeved'),
+(3, 1, 4, 9, 'archeved'),
+(4, 7, 3, 23, 'archeved'),
+(5, 6, 2, 30, 'archeved');
 
 -- --------------------------------------------------------
 
@@ -73,7 +97,10 @@ CREATE TABLE `l_emprunt` (
 --
 
 INSERT INTO `l_emprunt` (`Id_l_emprunt`, `la_date_d_emprunt`, `la_date_du_retour`, `Id_adhérent`, `Id_reservation`, `Id_ouvrage`) VALUES
-(1, '2023-03-27', '0000-00-00', 4, 1, 9);
+(1, '2015-12-02', '2023-04-05', 4, 1, 9),
+(3, '2023-04-05', '2023-04-05', 4, 2, 7),
+(4, '2023-04-05', '2023-04-05', 3, 7, 23),
+(5, '2023-04-05', '2023-04-05', 2, 6, 30);
 
 -- --------------------------------------------------------
 
@@ -192,8 +219,7 @@ INSERT INTO `ouvrage` (`Id_ouvrage`, `titre`, `nom_de_l_auteur`, `l_mage_de_couv
 (95, 'Leaves of Grass', ' Walt Whitman', 'images/leaves-of-grass.jpg', 'quite used', 'book', '2023-03-26', 0000, 'valable', 152),
 (96, 'Mrs Dalloway', ' Virginia Woolf', 'images/mrs-dalloway.jpg', 'New', 'book', '2023-03-26', 1925, 'valable', 216),
 (97, 'To the Lighthouse', ' Virginia Woolf', 'images/to-the-lighthouse.jpg', 'New', 'book', '2023-03-26', 1927, 'valable', 209),
-(98, 'Memoirs of Hadrian', ' Marguerite Yourcenar', 'images/memoirs-of-hadrian.jpg', 'Good condition', 'book', '2023-03-26', 1951, 'valable', 408),
-(100, '', '', NULL, '', '', '0000-00-00', 0000, 'not', 0);
+(98, 'Memoirs of Hadrian', ' Marguerite Yourcenar', 'images/memoirs-of-hadrian.jpg', 'Good condition', 'book', '2023-03-26', 1951, 'valable', 408);
 
 -- --------------------------------------------------------
 
@@ -215,7 +241,9 @@ CREATE TABLE `reservation` (
 
 INSERT INTO `reservation` (`Id_reservation`, `date_de_reservation`, `la_date_d_exper`, `Id_ouvrage`, `Id_adhérent`) VALUES
 (1, '2023-03-27', '0000-00-00', 9, 4),
-(2, '2023-03-27', '0000-00-00', 7, 4);
+(2, '2023-03-27', '0000-00-00', 7, 4),
+(6, '2023-04-05', '0000-00-00', 30, 2),
+(7, '2023-04-05', '0000-00-00', 23, 3);
 
 --
 -- Index pour les tables déchargées
@@ -232,11 +260,22 @@ ALTER TABLE `adhérent`
   ADD UNIQUE KEY `CIN` (`CIN`);
 
 --
+-- Index pour la table `archive`
+--
+ALTER TABLE `archive`
+  ADD PRIMARY KEY (`Id_archive`),
+  ADD UNIQUE KEY `Id_reservation` (`Id_reservation`),
+  ADD KEY `archive_ibfk_1` (`Id_ouvrage`),
+  ADD KEY `archive_ibfk_2` (`Id_adhérent`);
+
+--
 -- Index pour la table `l_emprunt`
 --
 ALTER TABLE `l_emprunt`
   ADD PRIMARY KEY (`Id_l_emprunt`),
-  ADD KEY `Id_ouvrage` (`Id_ouvrage`);
+  ADD KEY `Id_ouvrage` (`Id_ouvrage`),
+  ADD KEY `l_emprunt_ibfk_1` (`Id_adhérent`),
+  ADD KEY `l_emprunt_ibfk_2` (`Id_reservation`);
 
 --
 -- Index pour la table `ouvrage`
@@ -265,10 +304,16 @@ ALTER TABLE `adhérent`
   MODIFY `Id_adhérent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT pour la table `archive`
+--
+ALTER TABLE `archive`
+  MODIFY `Id_archive` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT pour la table `l_emprunt`
 --
 ALTER TABLE `l_emprunt`
-  MODIFY `Id_l_emprunt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_l_emprunt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `ouvrage`
@@ -280,11 +325,18 @@ ALTER TABLE `ouvrage`
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `Id_reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id_reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `archive`
+--
+ALTER TABLE `archive`
+  ADD CONSTRAINT `archive_ibfk_1` FOREIGN KEY (`Id_ouvrage`) REFERENCES `ouvrage` (`Id_ouvrage`),
+  ADD CONSTRAINT `archive_ibfk_2` FOREIGN KEY (`Id_adhérent`) REFERENCES `adhérent` (`Id_adhérent`);
 
 --
 -- Contraintes pour la table `l_emprunt`

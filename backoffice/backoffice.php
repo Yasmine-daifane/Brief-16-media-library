@@ -91,7 +91,7 @@ if (isset($_POST['search'])) {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div>
-      
+
         <p style="font-size: 13; font-family: 'Dancing Script', cursive;">BOOK lovers</p>
       </div>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -101,6 +101,9 @@ if (isset($_POST['search'])) {
           </li>
           <li class="nav-item">
             <a class="nav-link" href="Tables.php">Tables</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="archive.php">archive</a>
           </li>
         </ul>
       </div>
@@ -203,7 +206,7 @@ if (isset($_POST['search'])) {
       </section>
       <?php
     } else {
-      
+
       ?>
       <section class="px-5 mt-5">
         <div class="px-5">
@@ -248,7 +251,7 @@ if (isset($_POST['search'])) {
                 </div>
               </div>
               <?php
-            } 
+            }
     }
     ?>
         </div>
@@ -275,12 +278,12 @@ if (isset($_POST['search'])) {
             <div class="row g-0">
               <div class="col-md-4">
                 <img src="" alt="book image" id="book-image" class="img-fluid rounded-start">
-                 <p class="text-danger">NB* : every reservation last for 24H </p>
+                <p class="text-danger">NB* : every reservation last for 24H </p>
               </div>
               <div class="col-md-8">
                 <form action="edit.php" method="get">
                   <div class="card-body p-5">
-               
+
                   </div>
                   <input type="hidden" id="input" name="input">
                   <button type="submit" name="confirmation" class="confirmation">Confirm</button>

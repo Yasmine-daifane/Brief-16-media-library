@@ -74,7 +74,7 @@ if (isset($_GET['confirmation'])) {
     $member_total = $num_reservation + $num_loan;
     $book_reservation = $conn->query($check_book_valability);
     $book_reservation = $book_reservation->fetch(PDO::FETCH_ASSOC);
-    if ($member_total < 3 && $book_reservation['status'] == 'valable') {
+    if ($member_total <= 3 && $book_reservation['status'] == 'valable') {
         $sql = "INSERT INTO `reservation` (`Id_reservation`, `date_de_reservation`, `Id_ouvrage`, `Id_adhérent`) 
     VALUES (NULL, NOW(), '$id','$id_member')";
         $update = "UPDATE `ouvrage` SET `status` = 'not' WHERE `ouvrage`.`Id_ouvrage` = '$id'";
@@ -238,15 +238,6 @@ if (isset($_GET['confirmation'])) {
                     <p class="text-black">
                       <?php echo $book['l_etat'] ?>
                     </p>
-                    <form id="reserve" method="post">
-                      <input type="hidden" name="id" value="<?php echo $book['Id_ouvrage'] ?>">
-                      <button type="submit" name="Reserve" class="reservation px-4 py-2"
-                        data-bookid="<?php echo $book['Id_ouvrage'] ?>">Edite</button>
-                    </form>
-                    <form action="delete.php" method="post">
-                      <input type="hidden" name="id" value="<?php echo $book['Id_ouvrage'] ?>">
-                      <button type="submit" class="btn btn-danger mt-2">Delete</button>
-                    </form>
                   </div>
                 </div>
               </div>

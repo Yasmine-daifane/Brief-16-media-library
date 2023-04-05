@@ -35,34 +35,8 @@ if (isset($_POST['search'])) {
     $filter = $conn->query($filter);
     $result = $filter->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    $pageId;
-
-    if (isset($_GET['pageId'])) {
-        $pageId = $_GET['pageId'];
-    } else {
-        $pageId = 1;
-    }
-
-    $endIndex = $pageId * 8;
-    $StartIndex = $endIndex - 8;
-
-    $sql = ("SELECT * FROM `reservation` LIMIT 8 OFFSET $StartIndex");
-
-    $page = 'SELECT * FROM reservation';
-
-    $reservation_lentgh = $conn->query($page)->rowCount();
-
-    $pagesNum = 0;
-
-    if (($reservation_lentgh % 8) == 0) {
-
-        $pagesNum = $reservation_lentgh / 8;
-    } else {
-        $pagesNum = ceil($reservation_lentgh / 8);
-    }
-
-    $result_reservation = $conn->query($sql);
-    $reservation = $result_reservation->fetchAll(PDO::FETCH_ASSOC);
+    $reservation = ("SELECT Id_reservation FROM reservation EXCEPT SELECT Id_reservation FROM archive");
+    $result = $conn->query($reservation)->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
@@ -145,7 +119,7 @@ if (isset($_POST['search'])) {
                 <div class="h3 fw-bold pb-2 mb-4 text-dark  ">
                     Search result
                 </div>
-                <div  class="d-flex flex-wrap" style="gap: 3em;">
+                <div class="d-flex flex-wrap" style="gap: 3em;">
                     <?php
                     if (count($result) > 0) {
                         foreach ($result as $book) {
@@ -182,11 +156,13 @@ if (isset($_POST['search'])) {
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                </section>
-                <?php
+                            <?php
                         }
                     }
+                    ?>
+                </div>
+        </section>
+        <?php
     } else {
         ?>
         <section class="px-5 mt-5">
@@ -194,14 +170,18 @@ if (isset($_POST['search'])) {
                 <div class="h3 fw-bold pb-2 mb-4 text-dark ">
                     Today reservation
                 </div>
-                <div  class="d-flex flex-wrap " style="gap: 3em;">
+                <div class="d-flex flex-wrap " style="gap: 3em;">
                     <?php
-                    if (count($reservation) > 0) {
-                        foreach ($reservation as $book) {
-                            $id_book = $book['Id_ouvrage'];
-                            $id_memebr = $book['Id_adhérent'];
-                            $date = $book['date_de_reservation'];
+                    if (count($result) > 0) {
+                        foreach ($result as $book) {
                             $id_reservation = $book['Id_reservation'];
+
+                            $valid_reservation = "SELECT * FROM reservation WHERE Id_reservation = '$id_reservation'";
+                            $result = $conn->query($valid_reservation)->fetch(PDO::FETCH_ASSOC);
+
+                            $id_book = $result['Id_ouvrage'];
+                            $id_memebr = $result['Id_adhérent'];
+                            $date = $result['date_de_reservation'];
 
                             $user_nikename = "SELECT nickname FROM adhérent WHERE Id_adhérent = '$id_memebr'";
                             $nikename = $conn->query($user_nikename);
@@ -210,7 +190,6 @@ if (isset($_POST['search'])) {
                             $book = "SELECT * FROM ouvrage WHERE Id_ouvrage = '$id_book'";
                             $book = $conn->query($book);
                             $resulte = $book->Fetch(PDO::FETCH_ASSOC);
-
                             ?>
                             <div class="card" style="width: 18rem;">
                                 <img src="../<?php echo $resulte['l_mage_de_couverture'] ?>" class="card-img-top" alt="...">
@@ -230,20 +209,12 @@ if (isset($_POST['search'])) {
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                </section>
-                <?php
+                            <?php
                         }
                     }
+                    ?>
+                </div>
+        </section>
+        <?php
     } ?>
-    <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { ?>
-        <nav class="mt-5 mb-5 " aria-label="Page navigation example">
-            <ul class=" flex-wrap pagination justify-content-center">
-                <?php for ($i = 1; $i <= $pagesNum; $i++) { ?>
-                    <li class="page-item"><a class="page-link" href="<?php echo "admin.php?pageId=" . $i ?>"><?php echo $i; ?></a></li>
-                <?php } ?>
-            </ul>
-        </nav>
-    <?php }
-    ?>
 </body>

@@ -36,34 +36,8 @@ if (isset($_POST['search'])) {
     $filter = $conn->query($filter);
     $result = $filter->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    $pageId;
-
-    if (isset($_GET['pageId'])) {
-        $pageId = $_GET['pageId'];
-    } else {
-        $pageId = 1;
-    }
-
-    $endIndex = $pageId * 8;
-    $StartIndex = $endIndex - 8;
-
-    $sql = ("SELECT * FROM `l_emprunt` LIMIT 8 OFFSET $StartIndex");
-
-    $page = 'SELECT * FROM l_emprunt';
-
-    $reservation_lentgh = $conn->query($page)->rowCount();
-
-    $pagesNum = 0;
-
-    if (($reservation_lentgh % 8) == 0) {
-
-        $pagesNum = $reservation_lentgh / 8;
-    } else {
-        $pagesNum = ceil($reservation_lentgh / 8);
-    }
-
-    $borrowing = $conn->query($sql);
-    $borrowing = $borrowing->fetchAll(PDO::FETCH_ASSOC);
+    $l_emprunt = ("SELECT Id_reservation FROM l_emprunt EXCEPT SELECT Id_reservation FROM archive");
+    $result = $conn->query($l_emprunt)->fetchAll(PDO::FETCH_ASSOC);
 }
 
 
@@ -153,10 +127,15 @@ if (isset($_POST['search'])) {
                     <?php
                     if (count($result) > 0) {
                         foreach ($result as $book) {
-                            $id_book = $book['Id_ouvrage'];
-                            $id_memebr = $book['Id_adhérent'];
                             $id_reservation = $book['Id_reservation'];
-                            $id_loan = $book['Id_l_emprunt'];
+
+                            $l_emprunt = "SELECT * FROM l_emprunt WHERE Id_reservation = '$id_reservation'";
+                            $result = $conn->query($l_emprunt)->fetch(PDO::FETCH_ASSOC);
+
+                            $id_book = $result['Id_ouvrage'];
+                            $id_memebr = $result['Id_adhérent'];
+                            $id_loan = $result['Id_l_emprunt'];
+
 
                             $user_nikename = "SELECT nickname FROM adhérent WHERE Id_adhérent = '$id_memebr'";
                             $nikename = $conn->query($user_nikename);
@@ -196,14 +175,19 @@ if (isset($_POST['search'])) {
                 <div class="h3 fw-bold pb-2 mb-4 text-dark ">
                     Borrowing
                 </div>
-                <div  class="d-flex flex-wrap" style="gap: 3em;">
+                <div class="d-flex flex-wrap" style="gap: 3em;">
                     <?php
-                    if (count($borrowing) > 0) {
-                        foreach ($borrowing as $book) {
-                            $id_book = $book['Id_ouvrage'];
-                            $id_memebr = $book['Id_adhérent'];
+                    if (count($result) > 0) {
+                        foreach ($result as $book) {
+
                             $id_reservation = $book['Id_reservation'];
-                            $id_loan = $book['Id_l_emprunt'];
+
+                            $l_emprunt = "SELECT * FROM l_emprunt WHERE Id_reservation = '$id_reservation'";
+                            $result = $conn->query($l_emprunt)->fetch(PDO::FETCH_ASSOC);
+
+                            $id_book = $result['Id_ouvrage'];
+                            $id_memebr = $result['Id_adhérent'];
+                            $id_loan = $result['Id_l_emprunt'];
 
                             $user_nikename = "SELECT nickname FROM adhérent WHERE Id_adhérent = '$id_memebr'";
                             $nikename = $conn->query($user_nikename);
@@ -231,22 +215,14 @@ if (isset($_POST['search'])) {
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                </section>
-                <?php
+                            <?php
                         }
                     }
+                    ?>
+                </div>
+        </section>
+        <?php
     } ?>
-    <?php if ($_SERVER["REQUEST_METHOD"] == "GET") { ?>
-        <nav class="mt-5 mb-5 " aria-label="Page navigation example">
-            <ul class=" flex-wrap pagination justify-content-center">
-                <?php for ($i = 1; $i <= $pagesNum; $i++) { ?>
-                    <li class="page-item"><a class="page-link" href="<?php echo "admin.php?pageId=" . $i ?>"><?php echo $i; ?></a></li>
-                <?php } ?>
-            </ul>
-        </nav>
-    <?php }
-    ?>
     <!-- modal reservations -->
     <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="reservation" aria-hidden="true">
         <div class="modal-dialog modal-lg">

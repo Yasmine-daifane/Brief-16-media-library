@@ -21,10 +21,10 @@ if ($interval > 15) {
     $result = $conn->query($result);
     $result = $result->fetch(PDO::FETCH_ASSOC);
 }
-$id_reservation = $check_date['Id_reservation'];
-$delete_loan = "DELETE FROM l_emprunt WHERE `Id_reservation` = $id_reservation";
-$delete_reservation = "DELETE FROM reservation WHERE `Id_reservation` = $id_reservation";
-$delete_loan = $conn->query($delete_loan);
-$delete_reservation = $conn->query($delete_reservation);
+$Id_adhérent = $check_date['Id_adhérent'];
+$Id_ouvrage = $check_date['Id_ouvrage'];
+$Id_reservation = $check_date['Id_reservation'];
+$archive = "INSERT INTO `archive`(`Id_archive`, `Id_reservation`, `Id_adhérent`, `Id_ouvrage`, `status`) VALUES ('','$Id_reservation','$Id_adhérent','$Id_ouvrage','archeved')";
+$stmt = $conn->query($archive);
 header('Location: Borrowing.php');
 ?>
