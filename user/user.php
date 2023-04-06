@@ -82,7 +82,7 @@ if (isset($_GET['confirmation'])) {
         $stmt = $conn->query($sql);
         $success = "Thank you for your reservation request! We're happy to inform you that your booking has been tentatively reserved.  we kindly remind you that you have 24 hours to confirm this reservation before it expires.the next step is the loan process.";
         // header("Location: user.php");
-    } elseif ($member_total == 3) {
+    } elseif ($member_total == 3 ) {
         $no_more = "Sorry but it's look like you have reache the maximume of books you can borrow and reserve";
         // header("Location: user.php");
     } elseif ($book_reservation['status'] != 'valable') {
