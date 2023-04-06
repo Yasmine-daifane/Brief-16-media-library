@@ -74,7 +74,7 @@ if (isset($_GET['confirmation'])) {
     $member_total = $num_reservation + $num_loan;
     $book_reservation = $conn->query($check_book_valability);
     $book_reservation = $book_reservation->fetch(PDO::FETCH_ASSOC);
-    if ($member_total <= 3 && $book_reservation['status'] == 'valable') {
+    if ($member_total < 3 && $book_reservation['status'] == 'valable') {
         $sql = "INSERT INTO `reservation` (`Id_reservation`, `date_de_reservation`, `Id_ouvrage`, `Id_adhérent`) 
     VALUES (NULL, NOW(), '$id','$id_member')";
         $update = "UPDATE `ouvrage` SET `status` = 'not' WHERE `ouvrage`.`Id_ouvrage` = '$id'";
